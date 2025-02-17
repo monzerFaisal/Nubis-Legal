@@ -1,0 +1,920 @@
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+  }
+  
+  .hero-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.7);
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0.8) 30%,
+      rgba(0, 0, 0, 0.4) 100%
+    );
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    color: white;
+    padding: 2rem;
+  }
+  
+  .hero-title {
+    padding-left: 50px;
+    padding-top: 112px;
+    font-size: 50px;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: white;
+    max-width: 800px; 
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .highlight {
+    display: block;
+    color: #4f46e5; /* Your primary color */
+    text-shadow: none;
+  }
+  
+  .hero-subtitle {
+    padding: 32px 0px 48px 50px;
+    font-size: 30px;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    opacity: 0.9;
+  }
+  
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-left: 50px;
+  }
+  
+  .cta-button {
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    background: #4f46e5; /* Your primary color */
+    color: white;
+    transition: background 0.3s ease;
+  }
+  
+  /* Media Queries for iPad (768px and below) */
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.5rem;
+      padding-left: 30px;
+      padding-top: 80px;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.2rem;
+      padding-left: 30px;
+    }
+  
+    .hero-cta {
+      padding-left: 30px;
+    }
+  }
+  
+  /* Media Queries for Phones (480px and below) */
+  @media (max-width: 480px) {
+    .hero {
+      min-height: 500px;
+    }
+    
+    .hero-title {
+      font-size: 2rem;
+      padding-left: 20px;
+      padding-top: 60px;
+    }
+    
+    .hero-subtitle {
+      font-size: 1rem;
+      padding-left: 20px;
+    }
+    
+    .hero-cta {
+      flex-direction: column;
+      width: 100%;
+      padding-left: 20px;
+    }
+  
+    .cta-button {
+      width: 100%;
+      text-align: center;
+    }
+  }
+    
+
+  /* ======================
+   About Us Section
+   ====================== */
+   .about-us {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 136px 50px 136px 50px;
+    background-color: #ffffff;
+  }
+  
+  .about-us-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    max-width: 1200px;
+  }
+  
+  .about-us-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+  
+  .about-us-blocks {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1.5rem;
+    width: 450px;
+    height: 500px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+  
+  .image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    padding: 8px;
+    background-color: white;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-us-blocks img {
+    width: 450px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+    padding-right: 32px;
+  }
+  
+  .about-us-text {
+    flex: 1;
+    max-width: 500px;
+    padding: 1rem;
+  }
+  
+ 
+  
+  .about-us-title {
+    font-family: 'Roboto Slab';
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    border-left: 5px solid #333940;
+    padding-left: 1rem;
+  }
+  
+  .about-us-text p {
+    font-size: 20px;
+    color: #666;
+    line-height: 1.6;
+    text-align: justify;
+    padding-bottom: 64px; /* Fixed missing unit */
+  }
+  
+  
+  
+  
+  /* ======================
+     Responsive Design
+     ====================== */
+  
+  /* For Tablets (1024px and below) */
+  @media (max-width: 1024px) {
+    .about-us {
+      padding: 6rem 2rem; /* Adjusted padding */
+    }
+  
+    .about-us-container {
+      flex-direction: column; /* Stack content vertically */
+      align-items: center;
+    }
+  
+    .about-us-blocks {
+      width: 400px;
+      height: 450px;
+    }
+  
+    .about-us-text {
+      max-width: 100%;
+      text-align: center; /* Center text for better readability */
+    }
+  
+    .about-us-title {
+      text-align: center; /* Center titles */
+      border-left: 5px solid #333940; /* Remove border for centered alignment */
+      padding-left: 0;
+    }
+  }
+  
+  /* For iPad (768px and below) */
+  @media (max-width: 768px) {
+    .about-us {
+      padding: 4rem 1.5rem; /* Further reduced padding */
+    }
+  
+    .about-us-blocks {
+      width: 400px;
+      height: 400px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* Center images */
+    }
+  
+    .about-us-blocks img {
+      width: 400px; /* Full-width images */
+      height: 400px;
+      padding-right: 0; /* Remove padding */
+    }
+  
+    .about-us-text {
+      text-align: center;
+    }
+  }
+  
+  /* For Phones (480px and below) */
+  @media (max-width: 480px) {
+    .about-us {
+      padding: 3rem 1rem; /* Minimal padding */
+    }
+  
+    .about-us-title {
+      font-size: 1.8rem; /* Smaller font size */
+      text-align: left;
+      padding-left: 4px;
+    }
+  
+    .about-us-text p {
+      font-size: 0.95rem; /* Smaller text */
+    }
+}
+
+
+/* --------------- ceo-section ---------------------- */
+
+.ceo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 50px 136px 50px;
+    background-color: #ffffff;
+  }
+
+  .ceo-blocks img {
+    width: 500px; /* Full-width images */
+    height: 300px;
+    padding-left: 40px;
+    border-radius: 12px;
+  }
+
+  
+  
+  .ceo-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    max-width: 1200px;
+  }
+  
+  .ceo-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+  
+  .ceo-blocks {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1.5rem;
+    width: 450px;
+    height: 500px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+  
+  .image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    padding: 8px;
+    background-color: white;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ceo-text {
+    flex: 1;
+    max-width: 500px;
+    padding: 1rem;
+  }
+  
+  .ceo-text p {
+    font-size: 20px;
+    color: #666;
+    line-height: 1.6;
+    text-align: justify;
+    padding-bottom: 64px; /* Fixed missing unit */
+  }
+  
+  
+  
+  
+  /* ======================
+     Responsive Design
+     ====================== */
+  
+  /* For Tablets (1024px and below) */
+  @media (max-width: 1024px) {
+    .ceo {
+      padding: 6rem 2rem; /* Adjusted padding */
+    }
+  
+    .ceo-container {
+      flex-direction: column; /* Stack content vertically */
+      align-items: center;
+    }
+  
+    .ceo-blocks {
+      width: 400px;
+      height: 450px;
+    }
+  
+    .ceo-text {
+      max-width: 100%;
+      text-align: center; /* Center text for better readability */
+    }
+  
+    
+  }
+  
+  /* For iPad (768px and below) */
+  @media (max-width: 768px) {
+    .ceo {
+      padding: 4rem 1.5rem; /* Further reduced padding */
+    }
+  
+    .ceo-blocks {
+      width: 400px;
+      height: 400px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* Center images */
+    }
+  
+    .ceo-blocks img {
+      width: 400px; /* Full-width images */
+      height: 400px;
+      padding-right: 0; /* Remove padding */
+    }
+  
+    .ceo-text {
+      text-align: center;
+    }
+  }
+  
+  /* For Phones (480px and below) */
+  @media (max-width: 480px) {
+    .ceo {
+      padding: 3rem 1rem; /* Minimal padding */
+    }
+
+  
+    .ceo-text p {
+      font-size: 0.95rem; /* Smaller text */
+    }
+}
+
+
+
+
+/* ======================
+   nimo Section
+   ====================== */
+   .nimo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 50px 10px 50px;
+    background-color: #ffffff;
+  }
+  
+  .nimo-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    max-width: 1200px;
+  }
+  
+  .nimo-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+  
+  .nimo-blocks {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1.5rem;
+    width: 450px;
+    height: 500px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+  
+  .image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    padding: 8px;
+    background-color: white;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nimo-blocks img {
+    width: 150px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 70px;
+    
+  
+  }
+  
+  .nimo-text {
+    flex: 1;
+    max-width: 500px;
+    padding: 1rem;
+    padding-left: 70px;
+  }
+  
+ 
+  
+  .nimo-title {
+    font-family: 'Roboto Slab';
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    border-left: 5px solid #333940;
+    padding-left: 1rem;
+  }
+  
+  .nimo-text p {
+    font-size: 20px;
+    color: #666;
+    line-height: 1.6;
+    text-align: justify;
+    padding-bottom: 64px; /* Fixed missing unit */
+  }
+  
+  
+  
+  
+  /* ======================
+     Responsive Design
+     ====================== */
+  
+  /* For Tablets (1024px and below) */
+  @media (max-width: 1024px) {
+    .nimo {
+      padding: 6rem 2rem; /* Adjusted padding */
+    }
+  
+    .nimo-container {
+      flex-direction: column; /* Stack content vertically */
+      align-items: center;
+    }
+  
+    .nimo-blocks {
+      width: 400px;
+      height: 450px;
+    }
+  
+    .nimo-text {
+      max-width: 100%;
+      text-align: center; /* Center text for better readability */
+    }
+  
+    .nimo-title {
+      text-align: center; /* Center titles */
+      border-left: 5px solid #333940; /* Remove border for centered alignment */
+      padding-left: 0;
+    }
+  }
+  
+  /* For iPad (768px and below) */
+  @media (max-width: 768px) {
+    .nimo {
+      padding: 4rem 1.5rem; /* Further reduced padding */
+    }
+  
+    .nimo-blocks {
+      width: 400px;
+      height: 400px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* Center images */
+    }
+  
+    .nimo-blocks img {
+      width: 400px; /* Full-width images */
+      height: 400px;
+      padding-right: 0; /* Remove padding */
+    }
+  
+    .nimo-text {
+      text-align: center;
+    }
+  }
+  
+  /* For Phones (480px and below) */
+  @media (max-width: 480px) {
+    .nimo {
+      padding: 3rem 1rem; /* Minimal padding */
+    }
+  
+    .nimo-title {
+      font-size: 1.8rem; /* Smaller font size */
+      text-align: left;
+      padding-left: 4px;
+    }
+  
+    .nimo-text p {
+      font-size: 0.95rem; /* Smaller text */
+    }
+}
+
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+.counter-section {
+  padding: 4rem 0;
+  background-color: #fff;
+}
+
+.counter-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.counter-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+
+.counter-card {
+  position: relative;
+  padding: 2rem;
+  text-align: center;
+}
+
+.counter-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.counter-title {
+  font-size: 1.5rem;
+  color: #4a5568;
+  margin-bottom: 1rem;
+}
+
+.counter-description {
+  font-size: 1rem;
+  color: #718096;
+  line-height: 1.6;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .counter-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .counter-card {
+    padding: 2rem;
+  }
+
+  .counter-card:not(:first-child)::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 70%;
+    background-color: #e2e8f0;
+  }
+}
+
+@media (min-width: 992px) {
+  .counter-container {
+    padding: 0;
+  }
+}
+
+
+/* ======================
+     c-goal
+     ====================== */
+
+
+     .c-goal {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 136px 50px 136px 50px;
+      background-color: #ffffff;
+    }
+    
+    .c-goal-container {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      align-items: center;
+      max-width: 1200px;
+    }
+    
+    .c-goal-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+    
+    .c-goal-blocks {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      gap: 1.5rem;
+      width: 450px;
+      height: 500px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+    
+    .image-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 12px;
+      padding: 8px;
+      background-color: white;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .c-goal-blocks img {
+      width: 500px;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 250px;
+      padding-right: 32px;
+    }
+    
+    .c-goal-text {
+      flex: 1;
+      max-width: 500px;
+      padding: 20px 40px 0px 0px;
+    }
+
+    .c-goal-text span{
+
+      background-color: rgb(170, 168, 168);
+      padding: 7px 20px 7px 20px;
+      border-radius: 40px;
+      margin: 5px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+
+    .c-goal-text-span{
+      padding: 10px 20px 20px 0px;
+    }
+    
+   
+    
+    .c-goal-title {
+      font-family: 'Roboto Slab';
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      border-left: 5px solid #333940;
+      padding-left: 1rem;
+    }
+    
+    .c-goal-text p {
+      font-size: 20px;
+      color: #666;
+      line-height: 1.6;
+      text-align: justify;
+      padding-bottom: 64px; /* Fixed missing unit */
+    }
+    
+    
+    
+    
+    /* ======================
+       Responsive Design
+       ====================== */
+    
+    /* For Tablets (1024px and below) */
+    @media (max-width: 1024px) {
+      .c-goal {
+        padding: 6rem 2rem; /* Adjusted padding */
+      }
+    
+      .c-goal-container {
+        flex-direction: column; /* Stack content vertically */
+        align-items: center;
+      }
+    
+      .c-goal-blocks {
+        width: 400px;
+        height: 450px;
+      }
+    
+      .c-goal-text {
+        max-width: 100%;
+        text-align: center; /* Center text for better readability */
+      }
+    
+      .c-goal-title {
+        text-align: center; /* Center titles */
+        border-left: 5px solid #333940; /* Remove border for centered alignment */
+        padding-left: 0;
+      }
+    }
+    
+    /* For iPad (768px and below) */
+    @media (max-width: 768px) {
+      .c-goal {
+        padding: 4rem 1.5rem; /* Further reduced padding */
+      }
+    
+      .c-goal-blocks {
+        width: 400px;
+        height: 400px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Center images */
+      }
+    
+      .c-goal-blocks img {
+        width: 400px; /* Full-width images */
+        height: 400px;
+        padding-right: 0; /* Remove padding */
+      }
+    
+      .c-goal-text {
+        text-align: center;
+      }
+    }
+    
+    /* For Phones (480px and below) */
+    @media (max-width: 480px) {
+      .c-goal {
+        padding: 3rem 1rem; /* Minimal padding */
+      }
+    
+      .c-goal-title {
+        font-size: 1.8rem; /* Smaller font size */
+        text-align: left;
+        padding-left: 4px;
+      }
+    
+      .c-goal-text p {
+        font-size: 0.95rem; /* Smaller text */
+      }
+  }
+
+
+
+/* Meet Our Team Section */
+.meet-our-team {
+  padding: 50px 90px;
+  background: #f8f9fa;
+  text-align: center;
+}
+
+.meet-our-team-title{
+  font-family: 'Roboto Slab';
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    border-left: 5px solid #333940;
+    padding-left: 1rem;
+    text-align: left;
+
+
+}
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  padding: 2rem 0;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.team-grid {
+  
+  display: flex;
+  gap: 2rem;
+  padding: 0 2rem;
+  margin: 0 auto;
+}
+
+.team-member {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  flex: 0 0 auto;
+  min-width: 250px;
+  scroll-snap-align: start;
+}
+
+.member-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.member-name {
+  color: #2d3436;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.member-position {
+  color: #636e72;
+  font-size: 0.9rem;
+  margin: 0;
+}
