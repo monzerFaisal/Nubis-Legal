@@ -122,7 +122,7 @@ body {
   border-radius: 0.5rem;
   background: #4f46e5; /* Your primary color */
   color: white;
-  transition: background 0.3s ease;
+  transition: background 0.5s ease;
 }
 
 /* Media Queries for iPad (768px and below) */
@@ -360,7 +360,7 @@ body {
     align-items: center;
     justify-content: left;
     text-align: left;
-    margin-bottom: 3rem;
+    margin-bottom: 10px;
   }
   
   .services-header h2 {
@@ -374,7 +374,11 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-    margin-top: 3rem;
+    padding-top: 20px;
+  }
+  .swiper-wrapper{
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
   
   .service-item {
@@ -705,7 +709,7 @@ width: 450px;
    Testimonials Section
    ====================== */
    .testimonials {
-    padding: 6rem 2rem;
+    padding: 136px 91px;
     background: linear-gradient(135deg, #f9fafb, #e5e7eb);
     text-align: center;
   }
@@ -719,15 +723,33 @@ width: 450px;
     color: #111827; /* Added for better contrast */
   }
   
-  /* Testimonials Grid */
-  .testimonials-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    justify-content: center;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+  /* Scroll Container */
+  .scroll-container {
+    display: flex; /* Arrange items in a row */
+    gap: 20px; /* Spacing between cards */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding: 10px 0;
+    scroll-snap-type: x mandatory; /* Snap horizontally */
+    scroll-behavior: smooth; /* Smooth scroll when swiped/flung */
+  
+    /* Hide the scrollbar in WebKit-based browsers */
+    -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+  }
+  
+  .scroll-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar on Chrome/Safari */
+  }
+  
+  /* Hide scrollbar on Firefox (and modern browsers) */
+  .scroll-container {
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+  }
+  
+  /* Testimonial Item */
+  .testimonial-item {
+    width: 300px; /* Width of each testimonial card */
+    flex-shrink: 0; /* Prevent the cards from shrinking */
+    scroll-snap-align: start; /* Ensure the cards align to the left */
   }
   
   /* Testimonial Card */
@@ -746,28 +768,6 @@ width: 450px;
     margin: auto;
   }
   
-  .testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-  }
-  
-  .testimonial-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: #3b82f6;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-  }
-  
-  .testimonial-card:hover::before {
-    transform: scaleX(1);
-  }
-  
   /* Profile Image */
   .profile-image {
     width: 80px;
@@ -778,10 +778,6 @@ width: 450px;
     padding: 3px;
     margin: 0 auto;
     transition: transform 0.3s ease;
-  }
-  
-  .profile-image:hover {
-    transform: scale(1.1);
   }
   
   /* Client Info */
@@ -838,34 +834,6 @@ width: 450px;
     margin-top: 0.5rem;
   }
   
-  /* Animation */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .testimonial-card {
-    animation: fadeIn 0.5s ease-in-out;
-  }
-  
-  .testimonial-card:nth-child(1) {
-    animation-delay: 0.1s;
-  }
-  
-  .testimonial-card:nth-child(2) {
-    animation-delay: 0.2s;
-  }
-  
-  .testimonial-card:nth-child(3) {
-    animation-delay: 0.3s;
-  }
-  
   /* Quote Icons */
   .quote-icon {
     position: absolute;
@@ -885,81 +853,12 @@ width: 450px;
     right: 10px;
   }
   
-  /* ======================
-     Responsive Design
-     ====================== */
-  
-  /* For Tablets (1024px and below) */
-  @media (max-width: 1024px) {
-    .testimonials {
-      padding: 5rem 1.5rem; /* Adjusted padding */
-    }
-  
-    .testimonials-header {
-      font-size: 2rem; /* Smaller font size */
-    }
-  }
-  
-  /* For iPad (768px and below) */
-  @media (max-width: 768px) {
-    .testimonials {
-      padding: 4rem 1rem; /* Further reduced padding */
-    }
-  
-    .testimonials-header {
-      font-size: 1.8rem; /* Smaller font size */
-    }
-  
-    .testimonials-container {
-      grid-template-columns: 1fr; /* Stack cards vertically */
-    }
-  
-    .testimonial-card {
-      padding: 1.5rem; /* Adjusted padding */
-    }
-  
-    .profile-image {
-      width: 70px; /* Smaller profile image */
-      height: 70px;
-    }
-  
-    .client-name {
-      font-size: 1.1rem; /* Smaller font size */
-    }
-  
-    .client-role {
-      font-size: 0.85rem; /* Smaller font size */
-    }
-  
-    .testimonial-text {
-      font-size: 0.95rem; /* Smaller font size */
-    }
-  
-    .quote-icon {
-      font-size: 2.5rem; /* Smaller quote icon */
-    }
-  }
-  
-  /* For Phones (480px and below) */
-  @media (max-width: 480px) {
-    .testimonials-header {
-      font-size: 1.6rem; /* Smaller font size */
-    }
-  
-    .testimonial-text {
-      font-size: 0.9rem; /* Smaller font size */
-    }
-  
-    .testimonial-card {
-      padding: 1.2rem; /* Minimal padding */
-    }
-  }
 
 
 
 /* Blog Section Styles */
 .blog-section {
-  padding: 136px 91px;
+  padding: 136px 91px 0px 91px;
   background: linear-gradient(45deg, #f8fafc, #f1f5f9);
 }
 
@@ -967,7 +866,7 @@ width: 450px;
   font-family: 'Roboto Slab';
   font-size: 30px;
   font-weight: bold;
-  margin-bottom: 1rem;
+  
   border-left: 5px solid #333940;
 }
 
@@ -980,7 +879,9 @@ width: 450px;
   gap: 24px; /* Spacing between cards */
   overflow-x: auto; /* Enables horizontal scrolling */
   padding-bottom: 1rem;
-
+ 
+  padding-top: 50px;
+  padding-bottom: 50px;
   /* Hide scrollbar styles */
   scrollbar-width: none; /* For Firefox */
 }
@@ -1134,7 +1035,7 @@ width: 450px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 136px 30px 0px 30px;
+  padding: 136px 30px 136px 30px;
 }
 
 .image-section-bg {

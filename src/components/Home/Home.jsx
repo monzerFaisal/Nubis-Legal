@@ -1,6 +1,6 @@
 // External Libraries
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -211,10 +211,7 @@ function Home() {
             modules={[Navigation]}
             spaceBetween={30}
             slidesPerView={1}
-            navigation={{
-              nextEl: '.services-swiper-button-next',
-              prevEl: '.services-swiper-button-prev',
-            }}
+            
             breakpoints={{
               768: { slidesPerView: 2 },
               1024: { slidesPerView: 4 }
@@ -258,8 +255,7 @@ function Home() {
             ))}
 
             {/* Navigation Buttons */}
-            <div className="services-swiper-button-prev swiper-button-prev"></div>
-            <div className="services-swiper-button-next swiper-button-next"></div>
+            
           </Swiper>
         </div>
       </section>
@@ -395,36 +391,27 @@ function Home() {
 
 
 
+{/* ----------- Testimonials ----------- */}
 
-
-      {/* -- Testimonials Section -- */}
-      <section className="testimonials">
+<section className="testimonials">
   <div className="container my-5 py-5">
-
-  <div className="testimonials-header ">
-      
+    <div className="testimonials-header">
       <h2 className="testimonials-title">
-        OUR <span className="uppercase">BLOG</span>
+        Testimonials
       </h2>
     </div>
 
     <div className="row d-flex justify-content-center">
       <div className="col-md-12">
         <div className="card testimonial-card">
-          <div className="card-body px-3 py-4 position-relative"> {/* إضافة position-relative */}
+          <div className="card-body px-3 py-4 position-relative">
             {/* أيقونة الاقتباس اليسرى */}
             <i className="fas fa-quote-left fa-2x quote-icon left"></i>
 
-            <Swiper
-              modules={[Navigation, Pagination]}
-              spaceBetween={20}
-              slidesPerView={1}
-              navigation
-              pagination={{ clickable: true }}
-              className="testimonials-swiper"
-            >
+            {/* Scrollable Container */}
+            <div className="scroll-container">
               {testimonials.map((testimonial, index) => (
-                <SwiperSlide key={index}>
+                <div key={index} className="testimonial-item">
                   <div className="row d-flex justify-content-center">
                     <div className="col-lg-8 col-xl-6">
                       <div className="row">
@@ -461,11 +448,9 @@ function Home() {
                       </div>
                     </div>
                   </div>
-                </SwiperSlide>
+                </div>
               ))}
-              <br />
-              <br />
-            </Swiper>
+            </div>
 
             {/* أيقونة الاقتباس اليمنى */}
             <i className="fas fa-quote-right fa-2x quote-icon right"></i>
@@ -475,6 +460,7 @@ function Home() {
     </div>
   </div>
 </section>
+
 
 
     </>

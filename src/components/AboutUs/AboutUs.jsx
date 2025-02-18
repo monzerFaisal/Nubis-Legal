@@ -1,7 +1,8 @@
 import './AboutUS.css';
 import backgroundImage from '../img/loading.png';
 import aboutImage2 from '../img/jera.jpeg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 
 
@@ -34,6 +35,47 @@ function AboutUS() {  const [activeTab, setActiveTab] = useState("mission");
         return null;
     }
   };
+
+  const CounterCard = ({ number, title, description }) => {
+    const [count, setCount] = useState(1); // Start at 1
+
+    useEffect(() => {
+      const incrementCount = () => {
+        let start = 1;
+        const end = number; // Target number
+        const incrementTime = 50; // Interval time in ms
+
+        const increment = () => {
+          start += 3;
+          setCount(start);
+          if (start < end) {
+            setTimeout(increment, incrementTime);
+          }
+        };
+
+        increment();
+      };
+
+      incrementCount();
+    }, [number]);
+
+    return (
+      <div className="counter-card">
+        <h2 className="counter-number">{count}+</h2>
+        <h3 className="counter-title">{title}</h3>
+        <p className="counter-description">{description}</p>
+      </div>
+    );
+  };
+
+  // Prop validation for CounterCard component
+  CounterCard.propTypes = {
+    number: PropTypes.number.isRequired, // number should be a required prop and must be a number
+    title: PropTypes.string.isRequired,  // title should be a required prop and must be a string
+    description: PropTypes.string.isRequired // description should be a required prop and must be a string
+  };
+
+  
   return (
     <>
       {/* -- Hero Section -- */}
@@ -131,49 +173,34 @@ function AboutUS() {  const [activeTab, setActiveTab] = useState("mission");
 
 
 
-          {/* ----------------------------------------------------------- */}
+          {/* ------------------------counter-section----------------------------------- */}
 
-<section className="counter-section">
-  <div className="counter-container">
-    <div className="counter-grid">
-      {/* <!-- Column 1 --> */}
-      <div className="counter-card">
-        <h2 className="counter-number">70+</h2>
-        <h3 className="counter-title">Coded Elements</h3>
-        <p className="counter-description">
-          From buttons, to inputs, navbars, alerts or cards, you are covered
-        </p>
-      </div>
-
-      {/* <!-- Column 2 --> */}
-      <div className="counter-card">
-        <h2 className="counter-number">15+</h2>
-        <h3 className="counter-title">Design Blocks</h3>
-        <p className="counter-description">
-          Mix the sections, change the colors and unleash your creativity
-        </p>
-      </div>
-
-      {/* <!-- Column 3 --> */}
-      <div className="counter-card">
-        <h2 className="counter-number">4</h2>
-        <h3 className="counter-title">Pages</h3>
-        <p className="counter-description">
-          Save 3-4 weeks of work when you use our pre-made pages for your website
-        </p>
-      </div>
-
-      {/* <!-- Column 4 --> */}
-      <div className="counter-card">
-        <h2 className="counter-number">99%</h2>
-        <h3 className="counter-title">Satisfaction</h3>
-        <p className="counter-description">
-          Join thousands of happy customers using our templates and components
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+          <section className="counter-section">
+        <div className="counter-container">
+          <div className="counter-grid">
+            <CounterCard 
+              number={70} 
+              title="Coded Elements" 
+              description="From buttons, to inputs, navbars, alerts or cards, you are covered"
+            />
+            <CounterCard 
+              number={15} 
+              title="Design Blocks" 
+              description="Mix the sections, change the colors and unleash your creativity"
+            />
+            <CounterCard 
+              number={4} 
+              title="Pages" 
+              description="Save 3-4 weeks of work when you use our pre-made pages for your website"
+            />
+            <CounterCard 
+              number={99} 
+              title="Satisfaction" 
+              description="Join thousands of happy customers using our templates and components"
+            />
+          </div>
+        </div>
+      </section>
 
 
 

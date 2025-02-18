@@ -1,5 +1,13 @@
-import { useEffect, useState, useRef, useCallback } from 'react';
-import './Header.css';
+import { useEffect, useState, useRef, useCallback } from "react";
+import { useLocation, Link } from "react-router-dom";
+import "./Header.css";
+
+const NAV_LINKS = [
+  { name: "Home", path: "/" },
+  { name: "Services", path: "/services" },
+  { name: "About", path: "/about-us" },
+  { name: "Blog", path: "/blog" },
+];
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -7,46 +15,42 @@ function Header() {
   const headerRef = useRef(null);
   const menuRef = useRef(null);
   const dropdownRef = useRef(null);
+  const location = useLocation(); // Get current path
 
+  // Handle scroll effect for the header
   useEffect(() => {
     const handleScroll = () => {
-      const heroSection = document.querySelector('.hero');
+      const heroSection = document.querySelector(".hero");
       if (heroSection && headerRef.current) {
         const shouldScrolled = window.scrollY > heroSection.offsetHeight;
-        headerRef.current.classList.toggle('scrolled', shouldScrolled);
+        headerRef.current.classList.toggle("scrolled", shouldScrolled);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Handle resizing the window
   useEffect(() => {
-    const debounce = (fn, delay) => {
-      let timeoutId;
-      return (...args) => {
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => fn(...args), delay);
-      };
-    };
-
-    const handleResize = debounce(() => {
-      if (window.innerWidth > 768 && isMobileMenuOpen) {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
         setIsMobileMenuOpen(false);
         setIsDropdownOpen(false);
       }
-    }, 100);
+    };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [isMobileMenuOpen]);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
+  // Close menus when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
         menuRef.current &&
         !menuRef.current.contains(event.target) &&
-        !event.target.closest('.mobile-menu')
+        !event.target.closest(".mobile-menu")
       ) {
         setIsMobileMenuOpen(false);
         setIsDropdownOpen(false);
@@ -57,73 +61,99 @@ function Header() {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Toggle the mobile menu
   const toggleMobileMenu = useCallback(() => {
     setIsMobileMenuOpen((prev) => !prev);
     setIsDropdownOpen(false); // Close dropdown when opening mobile menu
   }, []);
 
+  // Toggle the dropdown menu
   const toggleDropdown = useCallback(() => {
     setIsDropdownOpen((prev) => !prev);
   }, []);
 
-  const closeMobileMenu = useCallback(() => {
+  // Close all menus
+  const closeMenus = useCallback(() => {
     setIsMobileMenuOpen(false);
     setIsDropdownOpen(false);
   }, []);
 
+  const isActive = (path) => location.pathname === path;
+
   return (
     <header className="header" ref={headerRef}>
       <nav className="navbar container">
-        <a href="#" className="logo">NUBIS</a>
+        {/* Logo */}
+        <Link to="/" className="logo">
+          NUBIS
+        </Link>
 
-        <div 
-          className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}
+        {/* Desktop & Tablet Menu */}
+        <div
+          className={`nav-menu ${isMobileMenuOpen ? "active" : ""}`}
           ref={menuRef}
         >
           <ul className="nav-links">
-            <li><a href="/" className="nav-link active" onClick={closeMobileMenu}>Home</a></li>
-            <li><a href="/services" className="nav-link" onClick={closeMobileMenu}>Services</a></li>
-            <li><a href="/about-us" className="nav-link" onClick={closeMobileMenu}>About</a></li>
-            <li><a href="/blog" className="nav-link" onClick={closeMobileMenu}>Blog</a></li>
+            {NAV_LINKS.map((link) => (
+              <li key={link.path}>
+                <Link
+                  to={link.path}
+                  className={`nav-link ${isActive(link.path) ? "active" : ""}`}
+                  onClick={closeMenus}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
-        {/* Dropdown for smaller screens (480px and below) */}
-        <div 
-          className="dropdown-menu" 
-          ref={dropdownRef} 
+        {/* Dropdown for smaller screens */}
+        <div
+          className="dropdown-menu"
+          ref={dropdownRef}
           onClick={toggleDropdown}
+          role="menu"
+          aria-label="Toggle dropdown menu"
         >
           <button className="dropdown-btn">
-            Menu <i className={`fas ${isDropdownOpen ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
+            Menu <i className={`fas ${isDropdownOpen ? "fa-chevron-up" : "fa-chevron-down"}`} />
           </button>
           {isDropdownOpen && (
-            <ul className="dropdown-links">
-              <li><a href="/" className="dropdown-link" onClick={closeMobileMenu}>Home</a></li>
-              <li><a href="/services" className="dropdown-link" onClick={closeMobileMenu}>Services</a></li>
-              <li><a href="/about-us" className="dropdown-link" onClick={closeMobileMenu}>About</a></li>
-              <li><a href="/blog" className="dropdown-link" onClick={closeMobileMenu}>Blog</a></li>
+            <ul className="dropdown-links" role="menu">
+              {NAV_LINKS.map((link) => (
+                <li key={link.path} role="menuitem">
+                  <Link
+                    to={link.path}
+                    className={`dropdown-link ${isActive(link.path) ? "active" : ""}`}
+                    onClick={closeMenus}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           )}
         </div>
 
-        <div 
-          className="mobile-menu" 
+        {/* Mobile Menu Icon */}
+        <div
+          className="mobile-menu"
           onClick={toggleMobileMenu}
           aria-label="Toggle navigation menu"
           aria-expanded={isMobileMenuOpen}
           role="button"
           tabIndex={0}
-          onKeyPress={(e) => e.key === 'Enter' && toggleMobileMenu()}
+          onKeyPress={(e) => e.key === "Enter" && toggleMobileMenu()}
         >
-          <i 
-            className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'}`}
+          <i
+            className={`fas ${isMobileMenuOpen ? "fa-times" : "fa-bars"}`}
             aria-hidden="true"
-          ></i>
+          />
         </div>
       </nav>
     </header>
