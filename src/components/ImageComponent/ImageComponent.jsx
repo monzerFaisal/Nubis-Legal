@@ -1,85 +1,86 @@
-import { useState, useEffect, useRef } from 'react';
-import './imageComponent.css';
-import imageBg from '../img/loading.png';
+import { useState, useRef, useCallback, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import './ImageComponent.css';
+import imageSrc from '../img/loading.png'; // Directly import the image
 
-const ImageComponent = () => {
-  const [scale, setScale] = useState(0.7);  // Start from 70% size
-  const [borderRadius, setBorderRadius] = useState(50);  // Start with 50px border-radius
-  const [textPosition, setTextPosition] = useState(0);
+const ImageComponent = ({ altText, overlayTitle, overlayDescription }) => {
+  const [scale, setScale] = useState(0.7);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const imageRef = useRef(null);
-  const lastScrollY = useRef(0);
-  const reachedFullSize = useRef(false); // Track if image has reached full size
+  const animationFrameRef = useRef();
+  const lastScrollY = useRef(window.scrollY);
+  const reachedFullSize = useRef(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!imageRef.current) return;
-
-      const image = imageRef.current;
-      const imageRect = image.getBoundingClientRect();
-      const imageHeight = imageRect.height;
-      const currentScrollY = window.scrollY;
-
-      // Reset when scrolling back to top
-      if (currentScrollY < lastScrollY.current) {
-        reachedFullSize.current = false; // Allow effect again when scrolling back up
-      }
-
-      // Check if user is scrolling down
-      if (currentScrollY > lastScrollY.current && !reachedFullSize.current) {
-        const imageTop = imageRect.top;
-        const upperQuarterY = -imageHeight * 0.25; // Upper quarter of the image
-
-        // Stop scaling when the image top reaches the upper quarter of the image
-        if (imageTop <= upperQuarterY) {
-          reachedFullSize.current = true; // Stop scaling
-          setScale(1); // Full size
-          setBorderRadius(0); // No border-radius
-        } else {
-          // Calculate the scaling progress (scale from 0.7 to 1)
-          const progress = Math.min((window.innerHeight / 2 - imageTop) / (imageHeight * 0.25), 1);
-          const newScale = 0.7 + progress * 0.3; // Start at 0.7 and scale to 1
-          setScale(newScale);
-
-          // Adjust border radius as we scale
-          const newBorderRadius = Math.max(50 - progress * 50, 0);
-          setBorderRadius(newBorderRadius);
-        }
-
-        // Move text upwards based on scroll progress
-        setTextPosition(-100 * (1 - Math.min((window.innerHeight / 2 - imageTop) / imageHeight, 1)));
-      }
-
-      lastScrollY.current = currentScrollY;
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+  const handleImageLoad = useCallback(() => {
+    setImageLoaded(true);
   }, []);
 
+  const calculateScale = useCallback(() => {
+    if (!imageRef.current || reachedFullSize.current) return;
+
+    const { top, height } = imageRef.current.getBoundingClientRect();
+    const triggerThreshold = window.innerHeight * (window.innerWidth <= 768 ? 0.1 : 0.2);
+
+    if (top <= triggerThreshold) {
+      setScale(1);
+      reachedFullSize.current = true;
+      return;
+    }
+
+    const progress = Math.min(
+      (window.innerHeight / 2 - top) / (height * 0.25),
+      1
+    );
+    setScale(0.7 + progress * 0.3);
+  }, []);
+
+  const handleScroll = useCallback(() => {
+    if (lastScrollY.current < window.scrollY) {
+      animationFrameRef.current = requestAnimationFrame(calculateScale);
+    }
+    lastScrollY.current = window.scrollY;
+  }, [calculateScale]);
+
+  useEffect(() => {
+    const scrollListener = () => {
+      animationFrameRef.current = requestAnimationFrame(handleScroll);
+    };
+
+    window.addEventListener('scroll', scrollListener);
+    return () => {
+      window.removeEventListener('scroll', scrollListener);
+      cancelAnimationFrame(animationFrameRef.current);
+    };
+  }, [handleScroll]);
+
   return (
-    <div className="video-background-container">
+    <section 
+      className="image-parallax-container"
+      aria-label="Parallax image section"
+    >
       <img
         ref={imageRef}
-        className="video-background"
-        src={imageBg}
-        alt="Background"
-        style={{
-          transform: `translate(-50%, -50%) scale(${scale})`,
-          borderRadius: `${borderRadius}px`,  // Set border radius dynamically
-          transition: 'transform 0.3s ease-out, border-radius 0.3s ease-out',
-        }}
+        className={`image-parallax ${imageLoaded ? 'loaded' : ''}`}
+        src={imageSrc} // Use directly imported image
+        alt={altText}
+        loading="lazy"
+        decoding="async"
+        onLoad={handleImageLoad}
+        style={{ transform: `scale(${scale})` }}
       />
-      <div
-        className="text-overlay"
-        style={{
-          transform: `translate(-50%, ${textPosition}%)`,
-        }}
-      >
-        <h1 className="overlay-title">Blend virtual objects with</h1>
-        <p className="overlay-description">your physical space</p>
+
+      <div className="text-overlay" role="region" aria-label="Content overlay">
+        <h1 className="overlay-title">{overlayTitle}</h1>
+        <p className="overlay-description">{overlayDescription}</p>
       </div>
-    </div>
+    </section>
   );
+};
+
+ImageComponent.propTypes = {
+  altText: PropTypes.string.isRequired, // Removed imageSrc from propTypes
+  overlayTitle: PropTypes.string.isRequired,
+  overlayDescription: PropTypes.string.isRequired,
 };
 
 export default ImageComponent;

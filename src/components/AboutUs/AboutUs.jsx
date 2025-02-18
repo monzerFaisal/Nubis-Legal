@@ -1,10 +1,39 @@
 import './AboutUS.css';
 import backgroundImage from '../img/loading.png';
 import aboutImage2 from '../img/jera.jpeg';
+import { useState } from 'react';
 
 
 
-function AboutUS() {
+function AboutUS() {  const [activeTab, setActiveTab] = useState("mission");
+
+  const renderGoalContent = () => {
+    switch (activeTab) {
+      case "mission":
+        return (
+          <p>
+            Our mission is to provide innovative solutions to our customers
+            while fostering sustainability and social responsibility.
+          </p>
+        );
+      case "vision":
+        return (
+          <p>
+            Our vision is to be a global leader in our industry, shaping the
+            future through innovation and excellence.
+          </p>
+        );
+      case "values":
+        return (
+          <p>
+            Our core values include integrity, customer focus, collaboration,
+            and continuous improvement.
+          </p>
+        );
+      default:
+        return null;
+    }
+  };
   return (
     <>
       {/* -- Hero Section -- */}
@@ -102,41 +131,7 @@ function AboutUS() {
 
 
 
-
-     {/* -- #########################nimo####################### -- */}
-     <section className="nimo" id="about">
-        <div className="nimo-container">
-          <div className="nimo-content">
-            {/* Left Image Blocks */}
-            <div className="nimo-blocks">
-          
-              
-            <span>  <img src={aboutImage2} alt="About Us 2" /></span>
-            <span>  <img src={aboutImage2} alt="About Us 2" /></span>
-            <span>  <img src={aboutImage2} alt="About Us 2" /></span>
-
-            </div>
-
-            {/* Right Text Section */}
-            <div className="nimo-text">
-              <h2 className="nimo-title">ABOUT US</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis,
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-                eget feugiat magna rhoncus.</p><br />
-                
-            </div>
-            
-          </div>
-          
-        </div>
-      </section>
-
-{/* ----------------------------------------------------------- */}
+          {/* ----------------------------------------------------------- */}
 
 <section className="counter-section">
   <div className="counter-container">
@@ -181,20 +176,26 @@ function AboutUS() {
 </section>
 
 
-{/* ---------c-goal----------------- */}
 
 
-     <section className="c-goal" id="about">
-        <div className="c-goal-container">
-          <div className="c-goal-content"></div>
-           {/* Right Text Section */}
-           <div className="c-goal-text">
-           <h2 className="c-goal-title">Our Main company goal................................ </h2>
-           <div className='c-goal-text-span'>
-           <span>Mission</span>
-           <span>Vission</span>
-           <span>Values</span>
-           </div>
+
+     {/* -- #########################nimo####################### -- */}
+     <section className="nimo" id="about">
+        <div className="nimo-container">
+          <div className="nimo-content">
+            {/* Left Image Blocks */}
+            <div className="nimo-blocks">
+          
+              
+            <span>  <img src={aboutImage2} alt="About Us 2" /></span>
+            <span>  <img src={aboutImage2} alt="About Us 2" /></span>
+            <span>  <img src={aboutImage2} alt="About Us 2" /></span>
+
+            </div>
+
+            {/* Right Text Section */}
+            <div className="nimo-text">
+              <h2 className="nimo-title">ABOUT US</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis,
                 eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -202,22 +203,53 @@ function AboutUS() {
                 eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                 Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
                 eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-                eget feugiat magna rhoncus.</p>
+                eget feugiat magna rhoncus.</p><br />
+                
             </div>
             
           </div>
-           {/* Left Image Blocks */}
-           <div className="c-goal-blocks">
           
-              
-          <img src={aboutImage2} alt="About Us 2" />
-        
-
-      </div>
+        </div>
+      </section>
 
 
 
-          </section>
+
+{/* -- Company Goal Section with Functional Buttons -- */}
+<section className="c-goal" id="goal">
+        <div className="c-goal-container">
+          <div className="c-goal-content"></div>
+          {/* Right Text Section */}
+          <div className="c-goal-text">
+            <h2 className="c-goal-title">Our Main Company Goal</h2>
+            <div className="c-goal-btn">
+              <button
+                className={activeTab === "mission" ? "active" : ""}
+                onClick={() => setActiveTab("mission")}
+              >
+                Mission
+              </button>
+              <button
+                className={activeTab === "vision" ? "active" : ""}
+                onClick={() => setActiveTab("vision")}
+              >
+                Vision
+              </button>
+              <button
+                className={activeTab === "values" ? "active" : ""}
+                onClick={() => setActiveTab("values")}
+              >
+                Values
+              </button>
+            </div>
+            {renderGoalContent()}
+          </div>
+          {/* Left Image Blocks */}
+          <div className="c-goal-blocks">
+            <img src={aboutImage2} alt="About Us 2" />
+          </div>
+        </div>
+      </section>
 
 
 {/* -- Meet Our Team Section -- */}

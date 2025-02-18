@@ -300,14 +300,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0px 50px 136px 50px;
+    padding: 0px 70px 136px 50px;
     background-color: #ffffff;
   }
 
   .ceo-blocks img {
     width: 500px; /* Full-width images */
-    height: 300px;
-    padding-left: 40px;
+    height: 450px;
+    padding-left: 0px;
     border-radius: 12px;
   }
 
@@ -362,8 +362,10 @@
     line-height: 1.6;
     text-align: justify;
     padding-bottom: 64px; /* Fixed missing unit */
+    padding-right: 70px;
   }
   
+
   
   
   
@@ -599,7 +601,7 @@
 /* ---------------------------------------------------------------------------------------------------- */
 
 .counter-section {
-  padding: 4rem 0;
+  padding-bottom: 136px;
   background-color: #fff;
 }
 
@@ -735,7 +737,7 @@
       padding: 20px 40px 0px 0px;
     }
 
-    .c-goal-text span{
+    .c-goal-btn button{
 
       background-color: rgb(170, 168, 168);
       padding: 7px 20px 7px 20px;

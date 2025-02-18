@@ -6,7 +6,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 // Internal Components
-import ImageComponent from '../imageComponent/imageComponent';
+import ImageComponent from '../ImageComponent/ImageComponent';
 
 // Assets
 import backgroundImage from '../img/loading.png';
@@ -67,6 +67,55 @@ function Home() {
 </section>
 
 
+
+
+      {/* -- Features Section -- */}
+      <section className="features">
+        <div className='features-container'>
+        <div className="feature-header">
+          <h2>
+            <span className="line"></span>
+            <span className="features-title">OUR <br />FEATURES</span>
+          </h2>
+        </div>
+        <div className="features-layout">
+          {[
+            { 
+              icon: "fa-shield-alt",
+              title: "Military-Grade Security",
+              text: "Advanced encryption protocols and multi-layered protection for your sensitive data.",
+            },
+            {
+              icon: "fa-rocket",
+              title: "Lightning Fast Performance",
+              text: "Optimized infrastructure delivering 99.99% uptime and instant response times.",
+            },
+            {
+              icon: "fa-infinity",
+              title: "Scalable Architecture",
+              text: "Flexible solutions that grow seamlessly with your business needs.",
+            },
+            { 
+              icon: "fa-headset",
+              title: "24/7 Expert Support",
+              text: "Round-the-clock assistance from certified technical specialists.",
+            },
+          ].map((feature, index) => (
+            <div className="feature-card" key={index}>
+              <div className="feature-icon">
+                <i className={`fas ${feature.icon}`}></i>
+              </div>
+              <h3>{feature.title}</h3>
+              <p>{feature.text}</p>
+            </div>
+          ))}
+        </div>
+        </div>
+      </section>
+
+
+
+
      {/* -- About Us Section -- */}
      <section className="about-us" id="about">
         <div className="about-us-container">
@@ -121,7 +170,7 @@ function Home() {
             
           </div>
            {/* Left Image Blocks */}
-           <div className="about-us-blocks">
+           <div className="ceo-blocks">
           
               
           <img src={aboutImage2} alt="About Us 2" />
@@ -135,72 +184,16 @@ function Home() {
 
 
 
-          <section className="image-section">
-  <div
-    className="image-section-bg"
-    style={{ backgroundImage: `url(${backgroundImage})` }}
-  >
-    <div className="overlay"></div>
-    <div className="text-container">
-      <h1>LOREM IPSUIM</h1>
-      <h2>LOREM IPSUIMMMM.</h2>
-    </div>
-    <div className="circle"></div>
-  </div>
-</section>
-
-
-
-
-
-      {/* -- Features Section -- */}
-      <section className="features">
-        <div className='features-container'>
-        <div className="feature-header">
-          <h2>
-            <span className="line"></span>
-            <span className="features-title">OUR <br />FEATURES</span>
-          </h2>
-        </div>
-        <div className="features-layout">
-          {[
-            { 
-              icon: "fa-shield-alt",
-              title: "Military-Grade Security",
-              text: "Advanced encryption protocols and multi-layered protection for your sensitive data.",
-            },
-            {
-              icon: "fa-rocket",
-              title: "Lightning Fast Performance",
-              text: "Optimized infrastructure delivering 99.99% uptime and instant response times.",
-            },
-            {
-              icon: "fa-infinity",
-              title: "Scalable Architecture",
-              text: "Flexible solutions that grow seamlessly with your business needs.",
-            },
-            { 
-              icon: "fa-headset",
-              title: "24/7 Expert Support",
-              text: "Round-the-clock assistance from certified technical specialists.",
-            },
-          ].map((feature, index) => (
-            <div className="feature-card" key={index}>
-              <div className="feature-icon">
-                <i className={`fas ${feature.icon}`}></i>
-              </div>
-              <h3>{feature.title}</h3>
-              <p>{feature.text}</p>
-            </div>
-          ))}
-        </div>
-        </div>
-      </section>
-
       {/* -- meta Section -- */}
       
       <ImageComponent />
-      
+
+
+
+
+
+
+
 
       {/* -- Services Section -- */}
       <section className="services" id="services">
@@ -209,7 +202,7 @@ function Home() {
           <div className="services-header flex items-center mb-12">
             <span className="w-1 h-10 bg-gray-400 mr-3"></span>
             <h2 className="about-us-title">
-              OUR <br /> <span className="uppercase">Services</span>
+              OUR  <span className="uppercase">Services</span>
             </h2>
           </div>
 
@@ -270,6 +263,30 @@ function Home() {
           </Swiper>
         </div>
       </section>
+
+
+
+
+
+      <section className="image-section">
+  <div
+    className="image-section-bg"
+    style={{ backgroundImage: `url(${backgroundImage})` }}
+  >
+    <div className="overlay"></div>
+    <div className="text-container">
+      <h1>LOREM IPSUIM</h1>
+      <h2>LOREM IPSUIMMMM.</h2>
+    </div>
+    <div className="circle"></div>
+  </div>
+</section>
+
+
+
+
+
+
 
 
       {/* -- Bolg Section -- */}
@@ -367,12 +384,7 @@ function Home() {
       <p className="text-base text-gray-700 leading-relaxed mb-4">
         {post.excerpt}
       </p>
-      <a
-        href="#"
-        className="text-blue-600 font-semibold hover:text-blue-800"
-      >
-        Read More →
-      </a>
+     
     </div>
   ))}
 </div>
