@@ -1,10 +1,29 @@
 import './AboutUS.css';
 import backgroundImage from '../img/loading.png';
 import aboutImage2 from '../img/jera.jpeg';
+
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+const TeamMember = ({ image, name, role, description }) => {
+  return (
+    <div className="team-member">
+      <img src={image} alt={`${name} - ${role}`} />
+      <div className="member-info">
+        <h3>{name}</h3>
+        <p className="role">{role}</p>
+        <p className="description">{description}</p>
+      </div>
+    </div>
+  );
+};
 
+TeamMember.propTypes = {
+  image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  role: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired
+};
 
 function AboutUS() {  const [activeTab, setActiveTab] = useState("mission");
 
@@ -280,30 +299,28 @@ function AboutUS() {  const [activeTab, setActiveTab] = useState("mission");
 
 
 {/* -- Meet Our Team Section -- */}
-<section className="meet-our-team" id="team">
-  <div className="container">
-    <h2 className="meet-our-team-title">Meet Our Team</h2>
-    <div className="scroll-container">
-      <div className="team-grid">
-        <div className="team-member">
-          <img src={aboutImage2} alt="James Ford" className="member-photo" />
-          <h3 className="member-name">James Ford</h3>
-          <p className="member-position">Director General</p>
-        </div>
-        <div className="team-member">
-          <img src={aboutImage2} alt="Ann Brown" className="member-photo" />
-          <h3 className="member-name">Ann Brown</h3>
-          <p className="member-position">Manager</p>
-        </div>
-        <div className="team-member">
-          <img src={aboutImage2} alt="Ben Jason" className="member-photo" />
-          <h3 className="member-name">Ben Jason</h3>
-          <p className="member-position">Developer</p>
-        </div>
-      </div>
-    </div>
+<section className="meet-our-team">
+  <div className="team-intro">
+    <h2>Meet Our Team</h2>
+    <p>Our talented team members are dedicated to making an impact.</p>
+  </div>
+  <div className="team-members">
+    <TeamMember
+      image={aboutImage2} // Replace with actual team member images
+      name="John Doe"
+      role="CEO"
+      description="Visionary leader with 15+ years experience"
+    />
+    <TeamMember
+      image={aboutImage2}
+      name="Jane Smith"
+      role="CTO"
+      description="Tech innovator and solution architect"
+    />
+    {/* Add more TeamMember components as needed */}
   </div>
 </section>
+
 
 
 

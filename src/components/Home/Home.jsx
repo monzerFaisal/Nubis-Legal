@@ -69,6 +69,39 @@ function Home() {
 
 
 
+
+     {/* -- About Us Section -- */}
+     <section className="about-us" id="about">
+        <div className="about-us-container">
+          <div className="about-us-content">
+            {/* Left Image Blocks */}
+            <div className="about-us-blocks">
+
+              
+                <img src={aboutImage2} alt="About Us 2" />
+              
+
+            </div>
+
+            {/* Right Text Section */}
+            <div className="about-us-text">
+              <h2 className="about-us-title">ABOUT US</h2>
+<p>&quot;At Nubis legal consultancy, we combine legal expertise with a modern, client-focused approach. Our team of seasoned professionals with experience in corporate, commercial, and civil law is dedicated to providing innovative, tailored solutions for businesses and individuals alike. We pride ourselves on delivering clarity, efficiency, and results in every case.&quot;
+
+When you choose Nubis, you&apos;re choosing a strategic partner committed to easing your burden, navigating the complexity of your matter, and achieving success. We deliver significant benefits that you can measure: lower internal and external costs, faster lead times on critical processes, more effective allocation of resources, productivity increases, and effective case management—these are some of the benefits we help our clients realize every day.
+You can choose from a comprehensive range of service solutions, all backed by deep expertise, global reach, and exceptional client service.
+</p><br />
+                <button className="about-us-btn">Get Started</button>
+            </div>
+            
+          </div>
+          
+        </div>
+      </section>
+
+
+
+
       {/* -- Features Section -- */}
       <section className="features">
         <div className='features-container'>
@@ -82,23 +115,38 @@ function Home() {
           {[
             { 
               icon: "fa-shield-alt",
-              title: "Military-Grade Security",
-              text: "Advanced encryption protocols and multi-layered protection for your sensitive data.",
+              title: "Experienced Legal Professionals ",
+              text: "Decades of combined expertise.",
             },
             {
               icon: "fa-rocket",
-              title: "Lightning Fast Performance",
-              text: "Optimized infrastructure delivering 99.99% uptime and instant response times.",
+              title: "Client-Focused Approach",
+              text: "Tailored solutions for your unique needs.",
             },
             {
               icon: "fa-infinity",
-              title: "Scalable Architecture",
-              text: "Flexible solutions that grow seamlessly with your business needs.",
+              title: "Modern Legal Solutions",
+              text: "Leveraging technology for efficiency",
             },
             { 
               icon: "fa-headset",
-              title: "24/7 Expert Support",
-              text: "Round-the-clock assistance from certified technical specialists.",
+              title: "Transparent Pricing",
+              text: "Clear, upfront costs with no hidden fees",
+            },
+            { 
+              icon: "fa-headset",
+              title: "Personalized Service",
+              text: "Dedicated support from start to finish.",
+            },
+            { 
+              icon: "fa-headset",
+              title: "Efficient & Reliable",
+              text: "Timely responses and effective legal execution.",
+            },
+            { 
+              icon: "fa-headset",
+              title: "Industry-Specific Expertise",
+              text: "From corporate law to real estate and compliance.",
             },
           ].map((feature, index) => (
             <div className="feature-card" key={index}>
@@ -115,41 +163,6 @@ function Home() {
 
 
 
-
-     {/* -- About Us Section -- */}
-     <section className="about-us" id="about">
-        <div className="about-us-container">
-          <div className="about-us-content">
-            {/* Left Image Blocks */}
-            <div className="about-us-blocks">
-          
-              
-                <img src={aboutImage2} alt="About Us 2" />
-              
-
-            </div>
-
-            {/* Right Text Section */}
-            <div className="about-us-text">
-              <h2 className="about-us-title">ABOUT US</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis,
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-                eget feugiat magna rhoncus.</p><br />
-                <button className="about-us-btn">Get Started</button>
-            </div>
-            
-          </div>
-          
-        </div>
-      </section>
-
-
-
            {/* -- CEO Section -- */}
      <section className="about-us" id="about">
         <div className="about-us-container">
@@ -157,14 +170,7 @@ function Home() {
            {/* Right Text Section */}
            <div className="about-us-text">
               
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis,
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-                eget feugiat magna rhoncus.</p><br />
+              <p>The legal world is constantly evolving, and so are we. At Nubis Legal Consultancy, we believe that every individual and business deserves access to top-tier legal services, we believe that legal services should be more than just transactions—they should be partnerships built on trust, clarity, and commitment. We founded this firm to provide businesses and individuals with reliable, strategic, and results-driven legal solutions that empower them to thrive in an ever-evolving world. Our team of legal professionals is here to guide you every step of the way, ensuring your rights and interests are always protected.</p><br />
                 <h2 className="ceo-title">CEO</h2>
             </div>
             
@@ -202,7 +208,7 @@ function Home() {
           <div className="services-header flex items-center mb-12">
             <span className="w-1 h-10 bg-gray-400 mr-3"></span>
             <h2 className="about-us-title">
-              OUR  <span className="uppercase">Services</span>
+            Our Legal Services
             </h2>
           </div>
 
@@ -220,23 +226,82 @@ function Home() {
           >
             {[
               {
-                title: "Tech Acceleration",
-                description: "Modernize your infrastructure with cutting-edge solutions",
+                title: "Contract Drafting and Review",
+                description: "Clear, Strong, and Legally Sound Contracts for Your Business, Maximize business value from contracts.",
+                text:"Identify opportunities and manage risks in your contracts across people, processes, technology, and data with experts in strategy, implementation, and operational support.",
                 icon: "🚀"
+              },
+              {
+                title: "Legal Consultation",
+                description: "Expert Legal Advice, Personalized for You",
+              
+                text:'Legal Business Advisory experts empower legal teams to re-envision the delivery of legal services, create necessary and data-driven strategies, and then provide legal services to help these teams execute their new strategies quickly and with ease.',
+                icon: "🔐"
+              },
+              {
+                title: "Company Formation and Registration",
+                description: "Start Your Business the Right Way",
+                text:'Take advantage of well-deployed technology and work with the experts at Nubis.',
+                icon: "📊"
+              },
+              {
+                title: "Trademark and Intellectual Property Registration",
+                description: "Protect Your Brand and Innovations",
+                text:'',
+                icon: "⚙️"
               },
               {
                 title: "Cyber Security",
                 description: "Protect your digital assets with enterprise-grade security",
+                text:'',
                 icon: "🔐"
               },
               {
                 title: "Digital Strategy",
                 description: "Transform your business with data-driven decisions",
+                text:'',
                 icon: "📊"
               },
               {
                 title: "Managed Services",
                 description: "Full-stack technical support and maintenance",
+                text:'',
+                icon: "⚙️"
+              },
+              {
+                title: "Cyber Security",
+                description: "Protect your digital assets with enterprise-grade security",
+                text:'',
+                icon: "🔐"
+              },
+              {
+                title: "Digital Strategy",
+                description: "Transform your business with data-driven decisions",
+                text:'',
+                icon: "📊"
+              },
+              {
+                title: "Managed Services",
+                description: "Full-stack technical support and maintenance",
+                text:'',
+                icon: "⚙️"
+              },
+              {
+                title: "Cyber Security",
+                description: "Protect your digital assets with enterprise-grade security",
+                text:'',
+                icon: "🔐"
+              },
+              {
+                title: "Digital Strategy",
+                description: "Transform your business with data-driven decisions",
+                text:'',
+                icon: "📊"
+              },
+              {
+                title: "Managed Services",
+                description: "Full-stack technical support and maintenance",
+                text:'',
                 icon: "⚙️"
               },
             ].map((service, index) => (
@@ -247,6 +312,7 @@ function Home() {
                   </div>
                   <h3 className="text-xl font-bold mb-2">{service.title}</h3>
                   <p className="text-base text-gray-700 leading-relaxed">{service.description}</p>
+                  <p className="text-base text-gray-700 leading-relaxed">{service.text}</p>
                   <div className="absolute bottom-4 right-4 text-gray-700 text-2xl">
                     →
                   </div>
