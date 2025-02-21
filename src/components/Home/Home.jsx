@@ -1,6 +1,5 @@
 // External Libraries
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -8,9 +7,13 @@ import 'swiper/css/pagination';
 // Internal Components
 import ImageComponent from '../ImageComponent/ImageComponent';
 
+
 // Assets
 import backgroundImage from '../img/loading.png';
 import aboutImage2 from '../img/jera.jpeg';
+import ceoHomepage from "../img/assets/Home/ceo home page .svg"
+import svg1 from '../img/assets/Home/Contract Drafting and Review mac.svg'
+// import svg1 from "../img/assets/Home/Company Formation and Registration mac.svg"
 
 // Styles
 import './Home.css';
@@ -55,10 +58,12 @@ function Home() {
   </div>
   <div className="hero-content container">
     <h1 className="hero-title">
-      <span className="highlight">Innovative Digital Solutions </span>
+      <span className="highlight">NUBIS LEGAL CONSULTANCY SERVICES.<br /> YOUR TRUSTED LEGAL PARTNER.</span>
+      
+      
     </h1>
     <p className="hero-subtitle">
-      Transforming ideas into exceptional digital experiences
+    Where Innovation Meets Expertise <br />Delivering Smarter Legal Solutions
     </p>
     <div className="hero-cta">
       <button className="cta-button">Get Started</button>
@@ -87,10 +92,10 @@ function Home() {
             <div className="about-us-text">
               <h2 className="about-us-title">ABOUT US</h2>
 <p>&quot;At Nubis legal consultancy, we combine legal expertise with a modern, client-focused approach. Our team of seasoned professionals with experience in corporate, commercial, and civil law is dedicated to providing innovative, tailored solutions for businesses and individuals alike. We pride ourselves on delivering clarity, efficiency, and results in every case.&quot;
-
+<br />
 When you choose Nubis, you&apos;re choosing a strategic partner committed to easing your burden, navigating the complexity of your matter, and achieving success. We deliver significant benefits that you can measure: lower internal and external costs, faster lead times on critical processes, more effective allocation of resources, productivity increases, and effective case management—these are some of the benefits we help our clients realize every day.
 You can choose from a comprehensive range of service solutions, all backed by deep expertise, global reach, and exceptional client service.
-</p><br />
+</p>
                 <button className="about-us-btn">Get Started</button>
             </div>
             
@@ -101,14 +106,13 @@ You can choose from a comprehensive range of service solutions, all backed by de
 
 
 
-
       {/* -- Features Section -- */}
       <section className="features">
         <div className='features-container'>
         <div className="feature-header">
           <h2>
-            <span className="line"></span>
-            <span className="features-title">OUR <br />FEATURES</span>
+            
+            <span className="features-title">OUR FEATURES</span>
           </h2>
         </div>
         <div className="features-layout">
@@ -133,21 +137,6 @@ You can choose from a comprehensive range of service solutions, all backed by de
               title: "Transparent Pricing",
               text: "Clear, upfront costs with no hidden fees",
             },
-            { 
-              icon: "fa-headset",
-              title: "Personalized Service",
-              text: "Dedicated support from start to finish.",
-            },
-            { 
-              icon: "fa-headset",
-              title: "Efficient & Reliable",
-              text: "Timely responses and effective legal execution.",
-            },
-            { 
-              icon: "fa-headset",
-              title: "Industry-Specific Expertise",
-              text: "From corporate law to real estate and compliance.",
-            },
           ].map((feature, index) => (
             <div className="feature-card" key={index}>
               <div className="feature-icon">
@@ -164,11 +153,11 @@ You can choose from a comprehensive range of service solutions, all backed by de
 
 
            {/* -- CEO Section -- */}
-     <section className="about-us" id="about">
-        <div className="about-us-container">
-          <div className="about-us-content"></div>
+     <section className="ceo" id="ceo">
+        <div className="ceo-container">
+          <div className="ceo-content"></div>
            {/* Right Text Section */}
-           <div className="about-us-text">
+           <div className="ceo-text">
               
               <p>The legal world is constantly evolving, and so are we. At Nubis Legal Consultancy, we believe that every individual and business deserves access to top-tier legal services, we believe that legal services should be more than just transactions—they should be partnerships built on trust, clarity, and commitment. We founded this firm to provide businesses and individuals with reliable, strategic, and results-driven legal solutions that empower them to thrive in an ever-evolving world. Our team of legal professionals is here to guide you every step of the way, ensuring your rights and interests are always protected.</p><br />
                 <h2 className="ceo-title">CEO</h2>
@@ -179,7 +168,7 @@ You can choose from a comprehensive range of service solutions, all backed by de
            <div className="ceo-blocks">
           
               
-          <img src={aboutImage2} alt="About Us 2" />
+          <img src={ceoHomepage} alt="About Us 2" />
         
 
       </div>
@@ -202,110 +191,88 @@ You can choose from a comprehensive range of service solutions, all backed by de
 
 
       {/* -- Services Section -- */}
-      <section className="services" id="services">
-        <div className="container mx-auto px-4 py-16">
-          {/* Services Header */}
-          <div className="services-header flex items-center mb-12">
-            <span className="w-1 h-10 bg-gray-400 mr-3"></span>
-            <h2 className="about-us-title">
-            Our Legal Services
-            </h2>
-          </div>
+{/* -- Services Section -- */}
+<section className="services" id="services">
+  <div className="container mx-auto px-4 py-16">
+    {/* Services Header */}
+    <div className="services-header flex items-center mb-12">
+      <span className="w-1 h-10 bg-gray-400 mr-3"></span>
+      <h2 className="services-title">
+        Our Services
+      </h2>
+    </div>
 
-          {/* Swiper Slider */}
-          <Swiper
-            modules={[Navigation]}
-            spaceBetween={30}
-            slidesPerView={1}
-            
-            breakpoints={{
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 4 }
-            }}
-            className="services-swiper"
-          >
-            {[
+    {/* Scroll Container */}
+    <div className="scroll-container">
+      {[
               {
                 title: "Contract Drafting and Review",
                 description: "Clear, Strong, and Legally Sound Contracts for Your Business, Maximize business value from contracts.",
-                text:"Identify opportunities and manage risks in your contracts across people, processes, technology, and data with experts in strategy, implementation, and operational support.",
-                icon: "🚀"
+                text:" with experts in strategy, implementation, and operational support.",
+                icon: svg1
               },
               {
                 title: "Legal Consultation",
                 description: "Expert Legal Advice, Personalized for You",
-              
-                text:'Legal Business Advisory experts empower legal teams to re-envision the delivery of legal services, create necessary and data-driven strategies, and then provide legal services to help these teams execute their new strategies quickly and with ease.',
-                icon: "🔐"
+                text:' and then provide legal services to help these teams execute their new strategies quickly and with ease.',
+                icon: "../img/assets/Home/Contract Drafting and Review mac.svg"
               },
               {
                 title: "Company Formation and Registration",
                 description: "Start Your Business the Right Way",
                 text:'Take advantage of well-deployed technology and work with the experts at Nubis.',
-                icon: "📊"
+                icon: "../img/assets/Home/Company Formation and Registration mac.svg"
               },
               {
                 title: "Trademark and Intellectual Property Registration",
                 description: "Protect Your Brand and Innovations",
-                text:'',
-                icon: "⚙️"
+                text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
+                icon: "../img/assets/Home/Trademark and Intellectual Property Registration mac.svg"
               },
               {
-                title: "Cyber Security",
+                title: "Legal Document Preparation",
                 description: "Protect your digital assets with enterprise-grade security",
-                text:'',
-                icon: "🔐"
+                text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
+                icon: "../img/assets/Home/Litigation and Court Documents mac .svg"
               },
               {
-                title: "Digital Strategy",
+                title: "Debt Collection",
                 description: "Transform your business with data-driven decisions",
-                text:'',
-                icon: "📊"
+                text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
+                icon: "../img/assets/Home/Debt Collection mac.svg"
               },
               {
-                title: "Managed Services",
+                title: "Litigation and Court Documents",
                 description: "Full-stack technical support and maintenance",
-                text:'',
-                icon: "⚙️"
+                text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
+                icon: "../img/assets/Home/Litigation and Court Documents mac .svg"
               },
               {
-                title: "Cyber Security",
+                title: "Dispute Resolution",
                 description: "Protect your digital assets with enterprise-grade security",
-                text:'',
-                icon: "🔐"
+                text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
+                icon: "../img/assets/Home/Dispute Resolution mac .svg"
               },
               {
-                title: "Digital Strategy",
+                title: "Contract Review and Analysis",
                 description: "Transform your business with data-driven decisions",
-                text:'',
-                icon: "📊"
+                text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
+                icon: "../img/assets/Home/Contract Review and Analysis mac.svg"
               },
               {
-                title: "Managed Services",
+                title: "Real Estate Legal Support",
                 description: "Full-stack technical support and maintenance",
-                text:'',
-                icon: "⚙️"
+                text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
+                icon: "../img/assets/Home/Real Estate Legal Support mac .svg"
               },
               {
-                title: "Cyber Security",
+                title: "Tax and Financial Legal Services",
                 description: "Protect your digital assets with enterprise-grade security",
-                text:'',
-                icon: "🔐"
-              },
-              {
-                title: "Digital Strategy",
-                description: "Transform your business with data-driven decisions",
-                text:'',
-                icon: "📊"
-              },
-              {
-                title: "Managed Services",
-                description: "Full-stack technical support and maintenance",
-                text:'',
-                icon: "⚙️"
+                text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
+                icon: "../img/assets/Home/Tax and Financial Legal Services mac.svg"
               },
             ].map((service, index) => (
-              <SwiperSlide key={index}>
+              <div key={index}>
                 <div className="service-item bg-gray-200 p-6 rounded-xl relative shadow-md hover:shadow-lg transition-transform duration-300 mx-2">
                   <div className="service-icon flex items-center justify-center w-16 h-16 bg-gray-800 text-white text-2xl rounded-lg mb-4">
                     {service.icon}
@@ -317,12 +284,11 @@ You can choose from a comprehensive range of service solutions, all backed by de
                     →
                   </div>
                 </div>
-              </SwiperSlide>
+              </div>
             ))}
 
-            {/* Navigation Buttons */}
             
-          </Swiper>
+          </div>
         </div>
       </section>
 
@@ -471,10 +437,8 @@ You can choose from a comprehensive range of service solutions, all backed by de
       <div className="col-md-12">
         <div className="card testimonial-card">
           <div className="card-body px-3 py-4 position-relative">
-            {/* أيقونة الاقتباس اليسرى */}
             <i className="fas fa-quote-left fa-2x quote-icon left"></i>
 
-            {/* Scrollable Container */}
             <div className="scroll-container">
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="testimonial-item">
@@ -490,13 +454,11 @@ You can choose from a comprehensive range of service solutions, all backed by de
                         </div>
                         <div className="col-9 col-md-9 col-lg-8 col-xl-8 text-center text-lg-start mx-auto mx-lg-0">
                           <div className="client-info">
-                            <h4 className="client-name">
-                              {testimonial.name}
-                            </h4>
+                            <h4 className="client-name">{testimonial.name}</h4>
                             <p className="client-role">{testimonial.role}</p>
                           </div>
                           <p className="testimonial-text">
-                            {testimonial.testimonial}
+                            {testimonial.text}
                           </p>
                           <div className="rating">
                             {[...Array(5)].map((_, i) => (
@@ -518,7 +480,6 @@ You can choose from a comprehensive range of service solutions, all backed by de
               ))}
             </div>
 
-            {/* أيقونة الاقتباس اليمنى */}
             <i className="fas fa-quote-right fa-2x quote-icon right"></i>
           </div>
         </div>

@@ -85,27 +85,30 @@ body {
 
 .hero-title {
   padding-left: 50px;
-  padding-top: 112px;
+  padding-top: 208px;
   font-size: 50px;
   line-height: 1.2;
-  margin-bottom: 1.5rem;
   color: white;
-  max-width: 800px; 
+  margin-bottom: 0px;
+  max-width: 1000px; 
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .highlight {
-  display: block;
-  color: #4f46e5; /* Your primary color */
+  display:inline;
+  color: black; /* Your primary color */
   text-shadow: none;
+  font-size: 45px;
+  font-weight: bold;
 }
 
 .hero-subtitle {
-  padding: 32px 0px 10px 50px;
-  font-size: 30px;
+  padding: 32px 0px 64px 50px;
+  font-size:  15px;
   margin-bottom: 0px;
   max-width: 600px;
   opacity: 0.9;
+  font-weight: light ;
 }
 
 .hero-cta {
@@ -117,71 +120,199 @@ body {
 
 .cta-button {
 
-  font-size: 1.1rem;
   font-weight: bold;
-  border-radius: 0.5rem;
-  background: #4f46e5; /* Your primary color */
+  border-radius: 10px;
+  font-size: 25px;
+  font-family: 'Roboto Slab';
+  background: black; /* Your primary color */
   color: white;
   transition: background 0.5s ease;
 }
 
-/* Media Queries for iPad (768px and below) */
-@media (max-width: 768px) {
-  .hero-content {
-    padding: 2rem;
-    justify-content: space-between; /* Distribute space between elements */
-  }
-
-  .hero-cta {
-    position: absolute;
-    left: 30px;
-    bottom: 40px;
-    padding: 0;
-    margin-top: 0;
-    width: calc(100% - 60px); /* Account for horizontal padding */
-  }
-
-  .hero-title {
-    padding-top: 30px;
-    padding-left: 30px;
-  }
-
-  .hero-subtitle {
-    padding-left: 30px;
-  }
-}
-
-/* Media Queries for Phones (402px and below) */
-@media (max-width: 402px) {
-  .hero {
-    min-height: 517px;
-    min-width: 402;
+  /* ======================
+   About Us Section
+   ====================== */
+   .about-us {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 136px 50px 136px 50px;
+    background-color: #ffffff;
   }
   
-  .hero-title {
-    font-size: 2rem;
-    padding-left: 20px;
-    padding-top: 60px;
+  .about-us-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    max-width: 1200px;
   }
   
-  .hero-subtitle {
-    font-size: 1rem;
-    padding-left: 20px;
+  .about-us-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
   }
   
-  .hero-cta {
-    flex-direction: column;
-    width: 100%;
-    padding-left: 20px;
+  .about-us-blocks {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1.5rem;
+    width: 450px;
+    height: 500px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
   }
 
-  .cta-button {
-    width: 100%;
-    text-align: center;
-  }
-}
+
+
 
   
+  .image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    padding: 8px;
+    background-color: white;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-us-blocks img {
+    width: 450px; 
+    height: 900px;
+    object-fit: cover;
+    border-radius: 12px;
+    padding-right: 32px;
+    
+  }
+  
+  .about-us-text {
+    flex: 1;
+    max-width: 500px;
+    padding: 1rem;
+    padding-top: 80px;
+  }
+  
+  
+  
+  .about-us-title {
+    font-family: 'Roboto Slab';
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    border-left: 5px solid #B39957;
+    padding-left: 1rem;
+  }
+  
+  .about-us-text p {
+    font-size: 20px;
+    font-weight: lighter;
+    color: #666;
+    line-height: 1.6;
+    text-align: justify;
+    padding-bottom: 64px; /* Fixed missing unit */
+  }
+  
+  .about-us-btn {
+    padding: 0.8rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    border-radius: 10px;
+    font-size: 25px;
+    background: black; /* Your primary color */
+    color: white;
+    transition: background 0.5s ease;
+  }
+  
+  /* Modern hover effect */
+  .about-us-btn:hover {
+    transform: scale(1.05) translateY(-4px); /* Adjusted scale for smoother effect */
+    box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* ======================
+     Responsive Design
+     ====================== */
+  
+  /* For Tablets (1024px and below) */
+  @media (max-width: 1024px) {
+    .about-us {
+      padding: 6rem 2rem; /* Adjusted padding */
+    }
+  
+    .about-us-container {
+      flex-direction: column; /* Stack content vertically */
+      align-items: center;
+    }
+  
+    .about-us-blocks {
+      width: 400px;
+      height: 450px;
+    }
+  
+    .about-us-text {
+      max-width: 100%;
+      text-align: center; /* Center text for better readability */
+    }
+  
+    .about-us-title,
+    .ceo-title {
+      text-align: center; /* Center titles */
+      border-left: none; /* Remove border for centered alignment */
+      padding-left: 0;
+    }
+  }
+  
+  /* For iPad (768px and below) */
+  @media (max-width: 768px) {
+    .about-us {
+      padding: 4rem 1.5rem; /* Further reduced padding */
+    }
+  
+    .about-us-blocks {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* Center images */
+    }
+  
+    .about-us-blocks img {
+      width: 100%; /* Full-width images */
+      height: auto;
+      padding-right: 0; /* Remove padding */
+    }
+  
+    .about-us-text {
+      text-align: center;
+    }
+  }
+  
+  /* For Phones (480px and below) */
+  @media (max-width: 480px) {
+    .about-us {
+      padding: 3rem 1rem; /* Minimal padding */
+    }
+  
+    .about-us-title,
+    .ceo-title {
+      font-size: 1.8rem; /* Smaller font size */
+    }
+  
+    .about-us-text p {
+      font-size: 0.95rem; /* Smaller text */
+    }
+  
+    .about-us-btn {
+      font-size: 1rem; /* Smaller button text */
+      padding: 0.6rem 1.5rem; /* Adjusted padding */
+    }
+  }
+
   
 
 /* ======================
@@ -197,7 +328,7 @@ body {
 }
 
 .features-container {
-  display: flex;
+  display: grid;
   flex-direction: row;
   gap: 2rem;
   align-items: center;
@@ -206,9 +337,10 @@ body {
 }
 
 .feature-header h2 {
-  display: flex;
-  padding-bottom: 100px;
+  display: grid;
+  padding-bottom: 80px;
   align-items: center;
+  text-align: center;
   font-size: 40px;
   text-transform: uppercase;
   font-weight: bold;
@@ -216,18 +348,14 @@ body {
   line-height: 1.2;
 }
 
-.feature-header .line {
-  width: 6px;
-  height: 4rem;
-  background-color: black;
-  margin-right: 10px;
-}
+
 
 .features-layout {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center; /* Center cards on smaller screens */
+  max-width: 800px;
 }
 
 .feature-card {
@@ -356,6 +484,86 @@ body {
 
 
 /* ======================
+   ceo Section
+   ====================== */
+
+
+   .ceo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 136px 50px 136px 50px;
+    background-color: #ffffff;
+  }
+  
+  .ceo-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    max-width: 1200px;
+  }
+  
+  .ceo-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+  
+  
+  .image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    padding: 8px;
+    background-color: white;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  
+  .ceo-text {
+    
+    max-width: 500px;
+    
+  }
+  
+  .ceo-text p{
+    padding-bottom: 10px;
+    padding-top: 100px;
+  }
+
+
+
+.ceo-blocks {
+  display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1.5rem;
+    width: 450px;
+    height: 800px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.ceo-blocks img{
+width: 508px;
+    height: 100%
+}
+.ceo-title {
+  font-family: 'Roboto Slab';
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  border-left: 6px solid #B39957;
+  padding-left: 1rem;
+}
+
+
+/* ======================
    Services Section
    ====================== */
    .services {
@@ -370,7 +578,14 @@ body {
     text-align: left;
     margin-bottom: 10px;
   }
-  
+  .services-title{
+    font-family: 'Roboto Slab';
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    border-left: 5px solid #B39957;
+    padding-left: 1rem;
+  }
   .services-header h2 {
     font-size: 2.5rem;
     font-weight: bold;
@@ -396,7 +611,9 @@ body {
     text-align: left;
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 500px;
+    height: 410px;
+    width: 370px;
+    margin-bottom: 30px;
   }
   
   .service-item:hover {
@@ -415,6 +632,17 @@ body {
     font-size: 2rem;
     color: white;
   }
+  /* Service Icons */
+.service-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.service-icon:hover svg {
+  transform: scale(1.1);
+}
   
   .service-item h3 {
     font-size: 1.5rem;
@@ -509,186 +737,7 @@ body {
     }
   }
 
-/* ======================
-   About Us Section
-   ====================== */
-   .about-us {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 136px 50px 136px 50px;
-    background-color: #ffffff;
-  }
-  
-  .about-us-container {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    align-items: center;
-    max-width: 1200px;
-  }
-  
-  .about-us-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: space-between;
-  }
-  
-  .about-us-blocks {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 1.5rem;
-    width: 450px;
-    height: 500px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-  }
 
-
-
-
-  
-  .image-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
-    padding: 8px;
-    background-color: white;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .about-us-blocks img {
-    width: 450px;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 12px;
-    padding-right: 32px;
-    
-  }
-  
-  .about-us-text {
-    flex: 1;
-    max-width: 500px;
-    padding: 1rem;
-  }
-  
-  
-  
-  .about-us-title {
-    font-family: 'Roboto Slab';
-    font-size: 40px;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    border-left: 5px solid #333940;
-    padding-left: 1rem;
-  }
-  
-  .about-us-text p {
-    font-size: 20px;
-    color: #666;
-    line-height: 1.6;
-    text-align: justify;
-    padding-bottom: 64px; /* Fixed missing unit */
-  }
-  
-  .about-us-btn {
-    padding: 0.8rem 2rem;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: 0.5rem;
-    background: #4f46e5; /* Your primary color */
-    color: white;
-    transition: background 0.3s ease;
-  }
-  
-  /* Modern hover effect */
-  .about-us-btn:hover {
-    transform: scale(1.05) translateY(-4px); /* Adjusted scale for smoother effect */
-    box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.15);
-  }
-  
-  /* ======================
-     Responsive Design
-     ====================== */
-  
-  /* For Tablets (1024px and below) */
-  @media (max-width: 1024px) {
-    .about-us {
-      padding: 6rem 2rem; /* Adjusted padding */
-    }
-  
-    .about-us-container {
-      flex-direction: column; /* Stack content vertically */
-      align-items: center;
-    }
-  
-    .about-us-blocks {
-      width: 400px;
-      height: 450px;
-    }
-  
-    .about-us-text {
-      max-width: 100%;
-      text-align: center; /* Center text for better readability */
-    }
-  
-    .about-us-title,
-    .ceo-title {
-      text-align: center; /* Center titles */
-      border-left: none; /* Remove border for centered alignment */
-      padding-left: 0;
-    }
-  }
-  
-  /* For iPad (768px and below) */
-  @media (max-width: 768px) {
-    .about-us {
-      padding: 4rem 1.5rem; /* Further reduced padding */
-    }
-  
-    .about-us-blocks {
-      width: 100%;
-      height: auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center; /* Center images */
-    }
-  
-    .about-us-blocks img {
-      width: 100%; /* Full-width images */
-      height: auto;
-      padding-right: 0; /* Remove padding */
-    }
-  
-    .about-us-text {
-      text-align: center;
-    }
-  }
-  
-  /* For Phones (480px and below) */
-  @media (max-width: 480px) {
-    .about-us {
-      padding: 3rem 1rem; /* Minimal padding */
-    }
-  
-    .about-us-title,
-    .ceo-title {
-      font-size: 1.8rem; /* Smaller font size */
-    }
-  
-    .about-us-text p {
-      font-size: 0.95rem; /* Smaller text */
-    }
-  
-    .about-us-btn {
-      font-size: 1rem; /* Smaller button text */
-      padding: 0.6rem 1.5rem; /* Adjusted padding */
-    }
-  }
 
 /* ======================
    Testimonials Section
@@ -705,36 +754,33 @@ body {
     font-weight: bold;
     margin-bottom: 1rem;
     padding-bottom: 20px;
-    color: #111827; /* Added for better contrast */
+    color: #111827;
   }
   
   /* Scroll Container */
   .scroll-container {
-    display: flex; /* Arrange items in a row */
-    gap: 20px; /* Spacing between cards */
-    overflow-x: auto; /* Enable horizontal scrolling */
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
     padding: 10px 0;
-    scroll-snap-type: x mandatory; /* Snap horizontally */
-    scroll-behavior: smooth; /* Smooth scroll when swiped/flung */
-  
-    /* Hide the scrollbar in WebKit-based browsers */
-    -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
   }
   
   .scroll-container::-webkit-scrollbar {
-    display: none; /* Hide scrollbar on Chrome/Safari */
+    display: none;
   }
   
-  /* Hide scrollbar on Firefox (and modern browsers) */
   .scroll-container {
-    scrollbar-width: none; /* Hide scrollbar in Firefox */
+    scrollbar-width: none;
   }
   
   /* Testimonial Item */
   .testimonial-item {
-    width: 300px; /* Width of each testimonial card */
-    flex-shrink: 0; /* Prevent the cards from shrinking */
-    scroll-snap-align: start; /* Ensure the cards align to the left */
+    width: 300px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
   }
   
   /* Testimonial Card */
@@ -753,7 +799,6 @@ body {
     margin: auto;
   }
   
-  /* Profile Image */
   .profile-image {
     width: 80px;
     height: 80px;
@@ -765,7 +810,6 @@ body {
     transition: transform 0.3s ease;
   }
   
-  /* Client Info */
   .client-info {
     text-align: center;
   }
@@ -781,7 +825,6 @@ body {
     color: #6b7280;
   }
   
-  /* Testimonial Text */
   .testimonial-text {
     font-size: 1rem;
     color: #374151;
@@ -792,7 +835,6 @@ body {
     text-align: left;
   }
   
-  /* Rating Stars */
   .rating {
     display: flex;
     justify-content: center;
@@ -811,7 +853,6 @@ body {
     fill: #f59e0b;
   }
   
-  /* Date */
   .date {
     font-size: 0.75rem;
     color: #6b7280;
@@ -819,7 +860,6 @@ body {
     margin-top: 0.5rem;
   }
   
-  /* Quote Icons */
   .quote-icon {
     position: absolute;
     font-size: 3rem;
@@ -837,8 +877,6 @@ body {
     bottom: 10px;
     right: 10px;
   }
-  
-
 
 
 /* Blog Section Styles */
@@ -852,7 +890,7 @@ body {
   font-size: 30px;
   font-weight: bold;
   
-  border-left: 5px solid #333940;
+  border-left: 6px solid #B39957;
 }
 
 .blog-header h2 {
@@ -865,7 +903,7 @@ body {
   overflow-x: auto; /* Enables horizontal scrolling */
   padding-bottom: 1rem;
  
-  padding-top: 50px;
+  padding-top: 30px;
   padding-bottom: 50px;
   /* Hide scrollbar styles */
   scrollbar-width: none; /* For Firefox */
@@ -1133,30 +1171,3 @@ body {
   }
 }
 
-
-.ceo-blocks {
-  display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 1.5rem;
-    width: 450px;
-    height: 800px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-}
-
-.ceo-blocks img{
-width: 450px;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 12px;
-    padding-right: 32px;
-}
-.ceo-title {
-  font-family: 'Roboto Slab';
-  font-size: 40px;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  border-left: 5px solid #333940;
-  padding-left: 1rem;
-}

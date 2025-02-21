@@ -1,8 +1,7 @@
 import './AboutUS.css';
 import backgroundImage from '../img/loading.png';
 import aboutImage2 from '../img/jera.jpeg';
-
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 const TeamMember = ({ image, name, role, description }) => {
@@ -25,7 +24,35 @@ TeamMember.propTypes = {
   description: PropTypes.string.isRequired
 };
 
-function AboutUS() {  const [activeTab, setActiveTab] = useState("mission");
+function AboutUS() {
+  const [activeTab, setActiveTab] = useState("mission");
+  const [isCounterVisible, setIsCounterVisible] = useState(false);
+  const counterSectionRef = useRef(null);
+
+  useEffect(() => {
+    const sectionElement = counterSectionRef.current; // Copy to local variable
+    if (!sectionElement) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsCounterVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(sectionElement);
+
+    // Cleanup uses the locally scoped variable
+    return () => {
+      if (sectionElement) {
+        observer.unobserve(sectionElement);
+      }
+    };
+  }, []); // Empty dependency array means this runs once on mount
+
 
   const renderGoalContent = () => {
     switch (activeTab) {
@@ -55,28 +82,33 @@ function AboutUS() {  const [activeTab, setActiveTab] = useState("mission");
     }
   };
 
-  const CounterCard = ({ number, title, description }) => {
-    const [count, setCount] = useState(1); // Start at 1
+  const CounterCard = ({ number, title, description, start }) => {
+    const [count, setCount] = useState(1);
+    const hasAnimated = useRef(false);
 
     useEffect(() => {
-      const incrementCount = () => {
-        let start = 1;
-        const end = number; // Target number
-        const incrementTime = 50; // Interval time in ms
+      if (start && !hasAnimated.current) {
+        hasAnimated.current = true;
+        
+        const incrementCount = () => {
+          let startCount = 1;
+          const end = number;
+          const incrementTime = 50;
 
-        const increment = () => {
-          start += 3;
-          setCount(start);
-          if (start < end) {
-            setTimeout(increment, incrementTime);
-          }
+          const increment = () => {
+            startCount = Math.min(startCount + 2, end);
+            setCount(startCount);
+            if (startCount < end) {
+              setTimeout(increment, incrementTime);
+            }
+          };
+
+          increment();
         };
 
-        increment();
-      };
-
-      incrementCount();
-    }, [number]);
+        incrementCount();
+      }
+    }, [start, number]);
 
     return (
       <div className="counter-card">
@@ -87,14 +119,13 @@ function AboutUS() {  const [activeTab, setActiveTab] = useState("mission");
     );
   };
 
-  // Prop validation for CounterCard component
   CounterCard.propTypes = {
-    number: PropTypes.number.isRequired, // number should be a required prop and must be a number
-    title: PropTypes.string.isRequired,  // title should be a required prop and must be a string
-    description: PropTypes.string.isRequired // description should be a required prop and must be a string
+    number: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    start: PropTypes.bool.isRequired,
   };
 
-  
   return (
     <>
       {/* -- Hero Section -- */}
@@ -121,24 +152,13 @@ function AboutUS() {  const [activeTab, setActiveTab] = useState("mission");
         </div>
       </section>
 
-
-
-
-
-     {/* -- About Us Section -- */}
-     <section className="about-us" id="about">
+      {/* -- About Us Section -- */}
+      <section className="about-us" id="about">
         <div className="about-us-container">
           <div className="about-us-content">
-            {/* Left Image Blocks */}
             <div className="about-us-blocks">
-          
-              
-                <img src={aboutImage2} alt="About Us 2" />
-              
-
+              <img src={aboutImage2} alt="About Us 2" />
             </div>
-
-            {/* Right Text Section */}
             <div className="about-us-text">
               <h2 className="about-us-title">ABOUT US</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -149,21 +169,16 @@ function AboutUS() {  const [activeTab, setActiveTab] = useState("mission");
                 Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
                 eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
                 eget feugiat magna rhoncus.</p><br />
-                
             </div>
-            
           </div>
-          
         </div>
       </section>
 
-           {/* -- CEO Section -- */}
-     <section className="ceo" id="about">
+      {/* -- CEO Section -- */}
+      <section className="ceo" id="about">
         <div className="ceo-container">
-          <div className="ceo-content"></div>
-           {/* Right Text Section */}
-           <div className="ceo-text">
-              
+          <div className="ceo-content">
+            <div className="ceo-text">
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis,
                 eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -172,47 +187,38 @@ function AboutUS() {  const [activeTab, setActiveTab] = useState("mission");
                 Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
                 eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
                 eget feugiat magna rhoncus.</p>
-                
             </div>
-            
           </div>
-           {/* Left Image Blocks */}
-           <div className="ceo-blocks">
-          
-              
-          <img src={aboutImage2} alt="About Us 2" />
-        
+          <div className="ceo-blocks">
+            <img src={aboutImage2} alt="About Us 2" />
+          </div>
+        </div>
+      </section>
 
-      </div>
-
-
-
-          </section>
-
-
-
-
-          {/* ------------------------counter-section----------------------------------- */}
-
-          <section className="counter-section">
+      {/* -- Counter Section -- */}
+      <section className="counter-section" ref={counterSectionRef}>
         <div className="counter-container">
           <div className="counter-grid">
             <CounterCard 
+              start={isCounterVisible}
               number={70} 
               title="Coded Elements" 
               description="From buttons, to inputs, navbars, alerts or cards, you are covered"
             />
             <CounterCard 
+              start={isCounterVisible}
               number={15} 
               title="Design Blocks" 
               description="Mix the sections, change the colors and unleash your creativity"
             />
             <CounterCard 
+              start={isCounterVisible}
               number={4} 
               title="Pages" 
               description="Save 3-4 weeks of work when you use our pre-made pages for your website"
             />
             <CounterCard 
+              start={isCounterVisible}
               number={99} 
               title="Satisfaction" 
               description="Join thousands of happy customers using our templates and components"
@@ -221,25 +227,15 @@ function AboutUS() {  const [activeTab, setActiveTab] = useState("mission");
         </div>
       </section>
 
-
-
-
-
-     {/* -- #########################nimo####################### -- */}
-     <section className="nimo" id="about">
+      {/* -- Nimo Section -- */}
+      <section className="nimo" id="about">
         <div className="nimo-container">
           <div className="nimo-content">
-            {/* Left Image Blocks */}
             <div className="nimo-blocks">
-          
-              
-            <span>  <img src={aboutImage2} alt="About Us 2" /></span>
-            <span>  <img src={aboutImage2} alt="About Us 2" /></span>
-            <span>  <img src={aboutImage2} alt="About Us 2" /></span>
-
+              <span><img src={aboutImage2} alt="About Us 2" /></span>
+              <span><img src={aboutImage2} alt="About Us 2" /></span>
+              <span><img src={aboutImage2} alt="About Us 2" /></span>
             </div>
-
-            {/* Right Text Section */}
             <div className="nimo-text">
               <h2 className="nimo-title">ABOUT US</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -250,84 +246,67 @@ function AboutUS() {  const [activeTab, setActiveTab] = useState("mission");
                 Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
                 eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
                 eget feugiat magna rhoncus.</p><br />
-                
             </div>
-            
           </div>
-          
         </div>
       </section>
 
-
-
-
-{/* -- Company Goal Section with Functional Buttons -- */}
-<section className="c-goal" id="goal">
+      {/* -- Company Goal Section -- */}
+      <section className="c-goal" id="goal">
         <div className="c-goal-container">
-          <div className="c-goal-content"></div>
-          {/* Right Text Section */}
-          <div className="c-goal-text">
-            <h2 className="c-goal-title">Our Main Company Goal</h2>
-            <div className="c-goal-btn">
-              <button
-                className={activeTab === "mission" ? "active" : ""}
-                onClick={() => setActiveTab("mission")}
-              >
-                Mission
-              </button>
-              <button
-                className={activeTab === "vision" ? "active" : ""}
-                onClick={() => setActiveTab("vision")}
-              >
-                Vision
-              </button>
-              <button
-                className={activeTab === "values" ? "active" : ""}
-                onClick={() => setActiveTab("values")}
-              >
-                Values
-              </button>
+          <div className="c-goal-content">
+            <div className="c-goal-text">
+              <h2 className="c-goal-title">Our Main Company Goal</h2>
+              <div className="c-goal-btn">
+                <button
+                  className={activeTab === "mission" ? "active" : ""}
+                  onClick={() => setActiveTab("mission")}
+                >
+                  Mission
+                </button>
+                <button
+                  className={activeTab === "vision" ? "active" : ""}
+                  onClick={() => setActiveTab("vision")}
+                >
+                  Vision
+                </button>
+                <button
+                  className={activeTab === "values" ? "active" : ""}
+                  onClick={() => setActiveTab("values")}
+                >
+                  Values
+                </button>
+              </div>
+              {renderGoalContent()}
             </div>
-            {renderGoalContent()}
           </div>
-          {/* Left Image Blocks */}
           <div className="c-goal-blocks">
             <img src={aboutImage2} alt="About Us 2" />
           </div>
         </div>
       </section>
 
-
-{/* -- Meet Our Team Section -- */}
-<section className="meet-our-team">
-  <div className="team-intro">
-    <h2>Meet Our Team</h2>
-    <p>Our talented team members are dedicated to making an impact.</p>
-  </div>
-  <div className="team-members">
-    <TeamMember
-      image={aboutImage2} // Replace with actual team member images
-      name="John Doe"
-      role="CEO"
-      description="Visionary leader with 15+ years experience"
-    />
-    <TeamMember
-      image={aboutImage2}
-      name="Jane Smith"
-      role="CTO"
-      description="Tech innovator and solution architect"
-    />
-    {/* Add more TeamMember components as needed */}
-  </div>
-</section>
-
-
-
-
-
-
-
-
+      {/* -- Meet Our Team Section -- */}
+      <section className="meet-our-team">
+        <div className="team-intro">
+          <h2>Meet Our Team</h2>
+          <p>Our talented team members are dedicated to making an impact.</p>
+        </div>
+        <div className="team-members">
+          <TeamMember
+            image={aboutImage2}
+            name="John Doe"
+            role="CEO"
+            description="Visionary leader with 15+ years experience"
+          />
+          <TeamMember
+            image={aboutImage2}
+            name="Jane Smith"
+            role="CTO"
+            description="Tech innovator and solution architect"
+          />
+        </div>
+      </section>
     </>
   );
 }

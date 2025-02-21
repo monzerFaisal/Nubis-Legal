@@ -29,12 +29,13 @@
 }
 
 .logo {
-  font-size: 1.8rem;
+  font-size: 35px;
   font-weight: 700;
   background: linear-gradient(45deg, #2563eb, #1e40af);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: transform var(--transition);
+  padding-left: 30px;
 }
 
 .nav-links {
