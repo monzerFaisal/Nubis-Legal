@@ -6,6 +6,7 @@ import 'swiper/css/pagination';
 
 // Internal Components
 import ImageComponent from '../ImageComponent/ImageComponent';
+import { LuArrowUpRight } from "react-icons/lu";
 
 
 // Assets
@@ -13,7 +14,19 @@ import backgroundImage from '../img/loading.png';
 import aboutImage2 from '../img/jera.jpeg';
 import ceoHomepage from "../img/assets/Home/ceo home page .svg"
 import svg1 from '../img/assets/Home/Contract Drafting and Review mac.svg'
-// import svg1 from "../img/assets/Home/Company Formation and Registration mac.svg"
+import svg2 from '../img/assets/Home/Legal Consultation mac.svg'
+import svg3 from '../img/assets/Home/Company Formation and Registration mac.svg'
+import svg4 from '../img/assets/Home/Trademark and Intellectual Property Registration mac.svg'
+import svg5 from '../img/assets/Home/Company Formation and Registration mac.svg'
+import svg6 from '../img/assets/Home/Debt Collection mac.svg'
+import svg7 from '../img/assets/Home/Litigation and Court Documents mac .svg'
+import svg8 from '../img/assets/Home/Dispute Resolution mac .svg'
+import svg9 from '../img/assets/Home/Contract Review and Analysis mac.svg'
+import svg10 from '../img/assets/Home/Real Estate Legal Support mac .svg'
+import svg11 from '../img/assets/Home/Tax and Financial Legal Services mac.svg'
+import svg12 from '../img/assets/Home/Regulatory and Legal Compliance mac.svg'
+
+
 
 // Styles
 import './Home.css';
@@ -93,10 +106,9 @@ function Home() {
               <h2 className="about-us-title">ABOUT US</h2>
 <p>&quot;At Nubis legal consultancy, we combine legal expertise with a modern, client-focused approach. Our team of seasoned professionals with experience in corporate, commercial, and civil law is dedicated to providing innovative, tailored solutions for businesses and individuals alike. We pride ourselves on delivering clarity, efficiency, and results in every case.&quot;
 <br />
-When you choose Nubis, you&apos;re choosing a strategic partner committed to easing your burden, navigating the complexity of your matter, and achieving success. We deliver significant benefits that you can measure: lower internal and external costs, faster lead times on critical processes, more effective allocation of resources, productivity increases, and effective case management—these are some of the benefits we help our clients realize every day.
-You can choose from a comprehensive range of service solutions, all backed by deep expertise, global reach, and exceptional client service.
+When you choose Nubis, you&apos;re choosing a strategic partner committed to easing your burden, navigating the complexity of your matter, and achieving success...
 </p>
-                <button className="about-us-btn">Get Started</button>
+                <button className="about-us-btn">Learn more</button>
             </div>
             
           </div>
@@ -215,82 +227,91 @@ You can choose from a comprehensive range of service solutions, all backed by de
                 title: "Legal Consultation",
                 description: "Expert Legal Advice, Personalized for You",
                 text:' and then provide legal services to help these teams execute their new strategies quickly and with ease.',
-                icon: "../img/assets/Home/Contract Drafting and Review mac.svg"
+                icon: svg2
               },
               {
                 title: "Company Formation and Registration",
                 description: "Start Your Business the Right Way",
                 text:'Take advantage of well-deployed technology and work with the experts at Nubis.',
-                icon: "../img/assets/Home/Company Formation and Registration mac.svg"
+                icon: svg3
               },
               {
                 title: "Trademark and Intellectual Property Registration",
                 description: "Protect Your Brand and Innovations",
                 text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
-                icon: "../img/assets/Home/Trademark and Intellectual Property Registration mac.svg"
+                icon: svg4
               },
               {
                 title: "Legal Document Preparation",
                 description: "Protect your digital assets with enterprise-grade security",
                 text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
-                icon: "../img/assets/Home/Litigation and Court Documents mac .svg"
+                icon: svg5
               },
               {
                 title: "Debt Collection",
                 description: "Transform your business with data-driven decisions",
                 text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
-                icon: "../img/assets/Home/Debt Collection mac.svg"
+                icon: svg6
               },
               {
                 title: "Litigation and Court Documents",
                 description: "Full-stack technical support and maintenance",
                 text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
-                icon: "../img/assets/Home/Litigation and Court Documents mac .svg"
+                icon: svg7
               },
               {
                 title: "Dispute Resolution",
                 description: "Protect your digital assets with enterprise-grade security",
                 text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
-                icon: "../img/assets/Home/Dispute Resolution mac .svg"
+                icon: svg8
               },
               {
                 title: "Contract Review and Analysis",
                 description: "Transform your business with data-driven decisions",
                 text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
-                icon: "../img/assets/Home/Contract Review and Analysis mac.svg"
+                icon: svg9
               },
               {
                 title: "Real Estate Legal Support",
                 description: "Full-stack technical support and maintenance",
                 text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
-                icon: "../img/assets/Home/Real Estate Legal Support mac .svg"
+                icon: svg10
               },
               {
                 title: "Tax and Financial Legal Services",
                 description: "Protect your digital assets with enterprise-grade security",
                 text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
-                icon: "../img/assets/Home/Tax and Financial Legal Services mac.svg"
+                icon: svg11
+              },
+              {
+                title: "Regulatory and Legal Compliance",
+                description: "Protect your digital assets with enterprise-grade security",
+                text:'and then provide legal services to help these teams execute their new strategies quickly and with ease.',
+                icon: svg12
               },
             ].map((service, index) => (
               <div key={index}>
                 <div className="service-item bg-gray-200 p-6 rounded-xl relative shadow-md hover:shadow-lg transition-transform duration-300 mx-2">
-                  <div className="service-icon flex items-center justify-center w-16 h-16 bg-gray-800 text-white text-2xl rounded-lg mb-4">
-                    {service.icon}
+                  <div className="service-icon flex items-center justify-center w-16 h-16 bg-gray-800 text-white rounded-lg mb-4">
+                    <img 
+                      src={service.icon} 
+                      alt={service.title}
+                      className="w-full h-full p-2 object-contain"
+                      style={{ color: "white" }} // Pass color to SVG
+                    />
                   </div>
                   <h3 className="text-xl font-bold mb-2">{service.title}</h3>
                   <p className="text-base text-gray-700 leading-relaxed">{service.description}</p>
                   <p className="text-base text-gray-700 leading-relaxed">{service.text}</p>
                   <div className="absolute bottom-4 right-4 text-gray-700 text-2xl">
-                    →
+                  <LuArrowUpRight />
                   </div>
                 </div>
               </div>
             ))}
-
-            
-          </div>
-        </div>
-      </section>
+    </div>
+  </div>
+</section>
 
 
 
