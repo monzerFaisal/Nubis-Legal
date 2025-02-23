@@ -165,58 +165,46 @@
   /* ======================
    Services Section
    ====================== */
-   .services {
-    padding: 136px 50px 136px 50px;
+.services {
+    padding: 136px 50px;
     background: linear-gradient(45deg, #f8fafc, #f1f5f9);
   }
   
   .services-header {
     display: flex;
     align-items: center;
-    justify-content: left;
-    text-align: left;
-    margin-bottom: 10px;
+    justify-content: center;
   }
-  .services-title{
-    font-family: 'Roboto Slab';
-    font-size: 40px;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    border-left: 5px solid #B39957;
-    padding-left: 1rem;
-  }
-  .services-header h2 {
+  
+  .services-title {
+    font-family: 'Roboto Slab', serif;
     font-size: 2.5rem;
-    font-weight: bold;
+    font-weight: 700;
+    padding-left: 1.5rem;
+    color: #111;
     text-transform: uppercase;
-    color: #111; /* Added for better contrast */
   }
   
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 0fr);
     gap: 2rem;
-    padding-top: 20px;
-  }
-  .swiper-wrapper{
-    margin-top: 30px;
-    margin-bottom: 30px;
+    padding: 2rem 0;
+    justify-items: center;
+    justify-content: center;
   }
   
   .service-item {
-    background: rgb(3, 45, 101); /* Faded blue with transparency */
+    background: rgba(3, 45, 101, 0.95);
     border-radius: 20px;
     padding: 2rem;
-    text-align: left;
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 410px;
-    width: 370px;
-    
-    /* Optional enhancement */
-    border: 1px solid rgba(191, 219, 254, 0.2); /* Light blue border */
-    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.05); /* Subtle blue shadow */
-    
+    min-height: 410px;
+    border: 1px solid rgba(191, 219, 254, 0.2);
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.05);
+    display: flex;
+    flex-direction: column;
   }
   
   .service-item:hover {
@@ -230,106 +218,165 @@
     justify-content: center;
     width: 64px;
     height: 64px;
-    background-color: #213d8a; /* Your blue background */
+    background-color: #213d8a;
     border-radius: 12px;
+    margin-bottom: 1.5rem;
   }
   
   .service-icon img {
-    filter: brightness(0) invert(1); /* Apply filter to image only */
-    width: 60%; /* Control icon size within container */
+    filter: brightness(0) invert(1);
+    width: 60%;
     height: 60%;
     object-fit: contain;
   }
   
   .service-item h3 {
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 700;
     color: white;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
   
   .service-item p {
     font-size: 1rem;
-    color: white;
+    color: rgba(255, 255, 255, 0.9);
     line-height: 1.6;
+    margin-bottom: 0.5rem;
   }
   
   .service-item div:last-child {
     position: absolute;
-    bottom: -2.5px;
+    bottom: 1rem;
     right: 1rem;
-    font-size: 2.5rem;
     color: white;
     transition: transform 0.3s ease;
   }
   
-  .service-item:hover div:last-child {
-    transform: translateX(5px);
+
+
+  .services-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    padding-bottom: 1rem;
   }
   
-  /* ======================
-     Responsive Design
-     ====================== */
-  
-  /* For Tablets (1024px and below) */
-  @media (max-width: 1024px) {
-    .services {
-      padding: 6rem 2rem; /* Adjusted padding */
-    }
-  
-    .services-header h2 {
-      font-size: 2.2rem; /* Slightly smaller font size */
-    }
-  
-    .service-item {
-      padding: 1.8rem; /* Adjusted padding */
-    }
+  .services-page {
+    flex: 0 0 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 0fr);
+    gap: 2rem;
+    padding: 1rem 0;
+    scroll-snap-align: start;
+    align-items: center;
+    
   }
   
-  /* For iPad (768px and below) */
-  @media (max-width: 768px) {
-    .services {
-      padding: 4rem 1.5rem; /* Further reduced padding */
-    }
-  
-    .services-header h2 {
-      font-size: 2rem; /* Smaller font size */
-    }
-  
-    .services-grid {
-      grid-template-columns: 1fr; /* Stack items vertically */
-    }
-  
-    .service-item {
-      padding: 1.5rem; /* Adjusted padding */
-    }
+  .pagination-dots {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem 0;
   }
   
-  /* For Phones (480px and below) */
-  @media (max-width: 480px) {
-    .services {
-      padding: 3rem 1rem; /* Minimal padding */
-    }
-  
-    .services-header h2 {
-      font-size: 1.8rem; /* Smaller font size */
-    }
-  
-    .service-item {
-      padding: 1.2rem; /* Minimal padding */
-    }
-  
-    .service-icon {
-      width: 56px; /* Smaller icon */
-      height: 56px;
-      font-size: 1.75rem;
-    }
-  
-    .service-item h3 {
-      font-size: 1.3rem; /* Smaller heading */
-    }
-  
-    .service-item p {
-      font-size: 0.9rem; /* Smaller text */
-    }
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #cbd5e1;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
   }
+  
+  .dot.active {
+    background-color: #213d8a;
+    transform: scale(1.3);
+  }
+
+  .service-item {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+}
+
+.service-item .absolute.inset-0 {
+  transition: background-color 0.3s ease;
+}
+
+.service-item:hover .absolute.inset-0 {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.service-item .group-hover\:translate-x-1 {
+  transition: transform 0.3s ease;
+}
+
+.service-item .group-hover\:-translate-y-1 {
+  transition: transform 0.3s ease;
+}
+  
+  /* Hide scrollbar */
+  .services-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .services-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Services Link Styles */
+.services-link {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    color: white; /* gray-700 */
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    z-index: 20;
+  }
+  
+  .services-link:hover {
+    color: white; /* gray-900 */
+    transform: translateY(-2px);
+  }
+  
+  .services-link:focus {
+    outline: 2px solid rgba(66, 153, 225, 0.5);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  
+  .services-link svg {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .services-link:hover svg {
+    transform: translate(2px, -2px);
+  }
+  
+  /* Optional: Add a subtle background on hover */
+  .services-link:hover::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+
+  
