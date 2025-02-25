@@ -1,68 +1,59 @@
-// External Libraries
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
-// Assets
-import backgroundImage from '../img/loading.png';
-
-// Styles
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import './Blog.css';
 
-function Blog() {
-  return (
-    <>
-      {/* -- Hero Section -- */}
-      <section className="hero">
-        <div className="hero-image-container">
-          <img 
-            src={backgroundImage} 
-            alt="Decorative background" 
-            className="hero-bg"
-            role="presentation"
-          />
-          <div className="hero-overlay"></div>
-        </div>
-        <div className="hero-content container">
-          <h1 className="hero-title">
-            <span className="highlight">NUBIS LEGAL CONSULTANCY SERVICES.<br /> YOUR TRUSTED LEGAL PARTNER.</span>
-          </h1>
-          <p className="hero-subtitle">
-            Where Innovation Meets Expertise <br />Delivering Smarter Legal Solutions
-          </p>
-          <div className="hero-cta">
-            <button className="cta-button">Get Started</button>
-          </div>
-        </div>
-      </section>
+const WORDPRESS_API_URL = 'https://nubislegal.com/wp-json/wp/v2/posts?_embed&order=desc&orderby=date';
 
-      {/* -- Blog Section -- */}
-      <section className="blog-section">
-        <h2 className="blog-heading">BLOG</h2>
-        <div className="blog-heading-line"></div>
-        
-        <article className="blog-post">
-          <div className="blog-image"><img src="" alt="" /></div>
-          <div className="blog-content">
-            <h3 className="blog-title">Lorem ipsum lorem.</h3>
-            <div className="blog-date">2/17/2025</div>
-            <p className="blog-excerpt">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <a href="#" className="read-more">
-              READ MORE
-              <span className="read-more-icon">
-                <svg className="arrow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </span>
-            </a>
-          </div>
-          
-        </article>
-        <div className="blog-buttom-line"></div>
-      </section>
-    </>
+function Blog() {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios.get(WORDPRESS_API_URL)
+      .then((response) => {
+        setPosts(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching posts:", error);
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
+  return (
+    <section className="blog-section">
+      <h2 className="blog-heading">BLOG</h2>
+      <div className="blog-heading-line"></div>
+
+      {loading ? (
+        <p>Loading posts...</p>
+      ) : posts.length > 0 ? (
+        posts.map((post) => (
+          <article key={post.id} className="blog-post">
+            <div className="blog-image">
+              <img 
+                src={post._embedded?.['wp:featuredmedia']?.[0]?.source_url || 'https://via.placeholder.com/150'} 
+                alt={post.title.rendered} 
+              />
+            </div>
+            <div className="blog-content">
+              <h3 className="blog-title">{post.title.rendered}</h3>
+              <div className="blog-date">{new Date(post.date).toLocaleDateString()}</div>
+              <p className="blog-excerpt" dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
+              <a href={post.link} className="read-more">
+                Read more
+                <span className="read-more-icon">
+                  <svg className="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-7-7l7 7-7 7"></path></svg>
+                </span>
+              </a>
+            </div>
+          </article>
+        ))
+      ) : (
+        <p>No posts available.</p>
+      )}
+
+      <div className="blog-buttom-line"></div>
+    </section>
   );
 }
 
