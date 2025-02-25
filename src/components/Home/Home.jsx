@@ -3,16 +3,19 @@
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { useState } from 'react';
 
 // Internal Components
 import ImageComponent from '../ImageComponent/ImageComponent';
 import { LuArrowUpRight } from "react-icons/lu";
+import { IoMdQuote } from "react-icons/io";
+
 
 
 // Assets
 import backgroundImage from '../img/loading.png';
+import ceo from "../img/assets/Home/ceo home page .svg"
 import aboutImage2 from '../img/jera.jpeg';
-import ceoHomepage from "../img/assets/Home/ceo home page .svg"
 import svg1 from '../img/assets/Home/Contract Drafting and Review mac.svg'
 import svg2 from '../img/assets/Home/Legal Consultation mac.svg'
 import svg3 from '../img/assets/Home/Company Formation and Registration mac.svg'
@@ -55,6 +58,7 @@ function Home() {
         "At vero eos et accusamus et iusto odio dignissimos qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia mollitia animi id laborum et dolorum fuga.",
     },
   ];
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   return (
     <>
@@ -170,8 +174,7 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
           <div className="ceo-content"></div>
            {/* Right Text Section */}
            <div className="ceo-text">
-              
-              <p>The legal world is constantly evolving, and so are we. At Nubis Legal Consultancy, we believe that every individual and business deserves access to top-tier legal services, we believe that legal services should be more than just transactions—they should be partnerships built on trust, clarity, and commitment. We founded this firm to provide businesses and individuals with reliable, strategic, and results-driven legal solutions that empower them to thrive in an ever-evolving world. Our team of legal professionals is here to guide you every step of the way, ensuring your rights and interests are always protected.</p><br />
+                <p>&quot; The legal world is constantly evolving, and so are we. At Nubis Legal Consultancy, we believe that every individual and business deserves access to top-tier legal services, we believe that legal services should be more than just transactions—they should be partnerships built on trust, clarity, and commitment. We founded this firm to provide businesses and individuals with reliable, strategic, and results-driven legal solutions...&quot;</p>
                 <h2 className="ceo-title">CEO</h2>
             </div>
             
@@ -180,7 +183,7 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
            <div className="ceo-blocks">
           
               
-          <img src={ceoHomepage} alt="About Us 2" />
+          <img src={ceo} alt="About Us 2" />
         
 
       </div>
@@ -193,10 +196,14 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
 
       {/* -- meta Section -- */}
       
-      <ImageComponent />
-
-
-
+      <ImageComponent
+  headings={[
+    "Experience the future",
+    "Blend virtual objects with your physical space",
+    "Transform your reality"
+  ]}
+  imageUrl={backgroundImage}
+/>
 
 
 
@@ -444,65 +451,55 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
 
 
 
-{/* ----------- Testimonials ----------- */}
 
+{/* ----------- Testimonials ----------- */}
 <section className="testimonials">
   <div className="container my-5 py-5">
-    <div className="testimonials-header">
-      <h2 className="testimonials-title">
-        Testimonials
-      </h2>
-    </div>
+    <h1 className="testimonials-title">TESTIMONIAL</h1>
 
-    <div className="row d-flex justify-content-center">
-      <div className="col-md-12">
-        <div className="card testimonial-card">
-          <div className="card-body px-3 py-4 position-relative">
-            <i className="fas fa-quote-left fa-2x quote-icon left"></i>
+    <div className="testimonial-wrapper position-relative">
+      <div className="position-absolute top-0 start-50 translate-middle">
+        <img
+          src={testimonials[activeTestimonial].image}
+          className="avatar rounded-circle border-4 border-white"
+          alt={testimonials[activeTestimonial].name}
+          style={{ width: '96px', height: '96px', objectFit: 'cover' }}
+        />
+      </div>
 
-            <div className="scroll-container">
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="testimonial-item">
-                  <div className="row d-flex justify-content-center">
-                    <div className="col-lg-8 col-xl-6">
-                      <div className="row">
-                        <div className="col-lg-4 d-flex justify-content-center align-items-center">
-                          <img
-                            src={testimonial.image}
-                            className="profile-image"
-                            alt={testimonial.name}
-                          />
-                        </div>
-                        <div className="col-9 col-md-9 col-lg-8 col-xl-8 text-center text-lg-start mx-auto mx-lg-0">
-                          <div className="client-info">
-                            <h4 className="client-name">{testimonial.name}</h4>
-                            <p className="client-role">{testimonial.role}</p>
-                          </div>
-                          <p className="testimonial-text">
-                            {testimonial.text}
-                          </p>
-                          <div className="rating">
-                            {[...Array(5)].map((_, i) => (
-                              <svg
-                                key={i}
-                                className={`star ${i < testimonial.rating ? 'active' : ''}`}
-                                viewBox="0 0 20 20"
-                              >
-                                <path d="M10 1l2.928 6.472 6.472.928-4.472 4.472 1.056 6.472-5.984-3.056-5.984 3.056 1.056-6.472-4.472-4.472 6.472-.928z" />
-                              </svg>
-                            ))}
-                          </div>
-                          <p className="date">{testimonial.date}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <i className="fas fa-quote-right fa-2x quote-icon right"></i>
+      <div className="testimonial-card bg-primary rounded-4 p-5 pt-5 position-relative">
+        <span className="quote-mark fs-1 text-warning text-center d-block mb-3"><IoMdQuote />
+        </span>
+        
+        <div className="testimonial-content">
+          <p className="testimonial-text text-white text-center lh-base mb-0">
+            {testimonials[activeTestimonial].testimonial}
+          </p>
+          <div className="client-info text-center mt-4">
+            <h4 className="client-name text-white mb-1">
+              {testimonials[activeTestimonial].name}
+            </h4>
+            <p className="client-role text-light mb-0">
+              {testimonials[activeTestimonial].role}
+            </p>
           </div>
+        </div>
+
+        <div className="dots d-flex justify-content-center gap-2 mt-4">
+          {testimonials.map((_, index) => (
+            <span 
+              key={index}
+              className={`dot rounded-pill ${index === activeTestimonial ? 'active' : ''}`}
+              onClick={() => setActiveTestimonial(index)}
+              style={{
+                width: index === activeTestimonial ? '32px' : '8px',
+                height: '8px',
+                backgroundColor: index === activeTestimonial ? '#2563eb' : '#e5e5e5',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease'
+              }}
+            ></span>
+          ))}
         </div>
       </div>
     </div>

@@ -152,27 +152,35 @@ function AboutUS() {
         </div>
       </section>
 
-      {/* -- About Us Section -- */}
-      <section className="about-us" id="about">
-        <div className="about-us-container">
-          <div className="about-us-content">
-            <div className="about-us-blocks">
-              <img src={aboutImage2} alt="About Us 2" />
-            </div>
-            <div className="about-us-text">
-              <h2 className="about-us-title">ABOUT US</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis,
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Vestibulum ut ullamcorper mi. Phasellus efficitur quam a dolor convallis, 
-                eget feugiat magna rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-                eget feugiat magna rhoncus.</p><br />
-            </div>
-          </div>
-        </div>
-      </section>
+      
+           {/* -- About Us Section -- */}
+           <section className="about-us" id="about">
+              <div className="about-us-container">
+                <div className="about-us-content">
+                  {/* Left Image Blocks */}
+                  <div className="about-us-blocks">
+      
+                    
+                      <img src={aboutImage2} alt="About Us 2" />
+                    
+      
+                  </div>
+      
+                  {/* Right Text Section */}
+                  <div className="about-us-text">
+                    <h2 className="about-us-title">ABOUT US</h2>
+      <p>&quot;At Nubis legal consultancy, we combine legal expertise with a modern, client-focused approach. Our team of seasoned professionals with experience in corporate, commercial, and civil law is dedicated to providing innovative, tailored solutions for businesses and individuals alike. We pride ourselves on delivering clarity, efficiency, and results in every case.&quot;
+      <br />
+      When you choose Nubis, you&apos;re choosing a strategic partner committed to easing your burden, navigating the complexity of your matter, and achieving success...
+      </p>
+                      
+                  </div>
+                  
+                </div>
+                
+              </div>
+            </section>
+      
 
       {/* -- CEO Section -- */}
       <section className="ceo" id="about">
@@ -288,11 +296,12 @@ function AboutUS() {
 
       {/* -- Meet Our Team Section -- */}
       <section className="meet-our-team">
+
+        <div className="team-members">
         <div className="team-intro">
           <h2>Meet Our Team</h2>
           <p>Our talented team members are dedicated to making an impact.</p>
         </div>
-        <div className="team-members">
           <TeamMember
             image={aboutImage2}
             name="John Doe"
@@ -306,6 +315,7 @@ function AboutUS() {
             description="Tech innovator and solution architect"
           />
         </div>
+        
       </section>
     </>
   );
