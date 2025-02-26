@@ -138,7 +138,7 @@
 /* ======================
    About Us Section
    ====================== */
-   .about-us {
+   .about-us-page {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -146,7 +146,7 @@
     background-color: #ffffff;
   }
   
-  .about-us-container {
+  .about-us-page-container {
     display: flex;
     gap: 2rem;
     align-items: center;
@@ -154,7 +154,7 @@
     width: 100%;
   }
   
-  .about-us-content {
+  .about-us-page-content {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -164,7 +164,7 @@
     max-width: 1200px;
   }
   
-  .about-us-blocks {
+  .about-us-page-blocks {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
@@ -173,7 +173,7 @@
     height: 500px;
   }
   
-  .about-us-blocks img {
+  .about-us-page-blocks img {
     width: 500px;
     height: 600px;
     object-fit: cover;
@@ -181,14 +181,14 @@
   
   }
   
-  .about-us-text {
+  .about-us-page-text {
     flex: 1;
     max-width: 500px;
     padding-top: 100px;
     padding-left: 100px;
   }
   
-  .about-us-title {
+  .about-us-page-title {
     font-family: 'Roboto Slab';
     font-size: 40px;
     font-weight: bold;
@@ -197,14 +197,14 @@
     padding-left: 1rem;
   }
   
-  .about-us-text p {
+  .about-us-page-text p {
     font-size: 20px;
     color: #666;
     line-height: 1.6;
     padding-bottom: 46px;
   }
   
-  .about-us-btn {
+  .about-us-page-btn {
     padding: 0.8rem 2rem;
     border-radius: 10px;
     font-size: 25px;
@@ -213,7 +213,7 @@
     transition: all 0.3s ease;
   }
   
-  .about-us-btn:hover {
+  .about-us-page-btn:hover {
     transform: scale(1.05) translateY(-4px);
     box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.15);
   }
@@ -222,7 +222,7 @@
      Responsive Design
      ====================== */
     @media (max-width: 768px) {
-      .about-us {
+      .about-us-page {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -230,7 +230,7 @@
         background-color: #ffffff;
       }
       
-      .about-us-container {
+      .about-us-page-container {
         display: flex;
         gap: 2rem;
         align-items: center;
@@ -238,7 +238,7 @@
         width: 668px;
       }
       
-      .about-us-content {
+      .about-us-page-content {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -249,20 +249,19 @@
       }
       
       
-      
-      .about-us-blocks img {
+      .about-us-page-blocks img {
         width: 345px;
         height: 440px;
         object-fit: cover;
         border-radius: 12px;
       }
       
-      .about-us-text {
+      .about-us-page-text {
         flex: 1;
         max-width: 300px;
       }
       
-      .about-us-title {
+      .about-us-page-title {
         font-family: 'Roboto Slab';
         font-size: 30px;
         font-weight: bold;
@@ -271,7 +270,7 @@
         padding-left: 3px;
       }
       
-      .about-us-text p {
+      .about-us-page-text p {
         font-size: 15px;
         color: #666;
         text-align: justify;
@@ -279,19 +278,17 @@
       }
       
       
-      
-   
     }
   
   @media (max-width: 480px) {
-    .about-us {
+    .about-us-page {
       padding: 40px 15px;
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: #ffffff;
     }
-    .about-us-container {
+    .about-us-page-container {
       display: flex;
       gap: 1rem;
       align-items: center;
@@ -299,7 +296,7 @@
       width: 450px;
     }
     
-    .about-us-content {
+    .about-us-page-content {
       display: flex;
       flex-direction: column-reverse;
       flex-wrap: wrap;
@@ -309,7 +306,7 @@
       max-width: 450px;
     }
     
-    .about-us-blocks {
+    .about-us-page-blocks {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: repeat(4, 1fr);
@@ -318,19 +315,19 @@
       height: 500px;
     }
     
-    .about-us-blocks img {
+    .about-us-page-blocks img {
       width: 345px;
       height: 440px;
       object-fit: cover;
       border-radius: 12px;
     }
     
-    .about-us-text {
+    .about-us-page-text {
       padding-bottom: 30px;
       flex: 1;
     }
     
-    .about-us-title {
+    .about-us-page-title {
       font-family: 'Roboto Slab';
       font-size: 20px;
       font-weight: bold;
@@ -339,14 +336,14 @@
       padding-left: 0px;
     }
     
-    .about-us-text p {
+    .about-us-page-text p {
       font-size: 15px;
       color: #666;
       text-align: justify;
       padding-bottom: 20px;
     }
     
-    .about-us-btn {
+    .about-us-page-btn {
       padding: 6px 10px;
       border-radius: 10px;
       font-size: 25px;
@@ -356,7 +353,7 @@
       
     }
     
-    .about-us-btn:hover {
+    .about-us-page-btn:hover {
       transform: scale(1.05) translateY(-4px);
       box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.15);
     }
@@ -364,117 +361,171 @@
 
 
 
-/* --------------- ceo-section ---------------------- */
+/* --------------- about-us-ceo-section ---------------------- */
 
-.ceo {
+
+.about-us-ceo {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 136px 70px 136px 50px;
-  background-color: #ffffff;
-}
-
-.ceo-blocks img {
-  width: 500px;
-  height: 450px;
-  padding-left: 0px;
-  border-radius: 12px;
-}
-
-.ceo-container {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  align-items: center;
-  max-width: 1200px;
-}
-
-.ceo-content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: space-between;
-}
-
-.ceo-blocks {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 1.5rem;
-  width: 450px;
-  height: 500px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-}
-
-.ceo-text {
-  flex: 1;
-  max-width: 500px;
-  padding: 1rem;
-}
-
-.ceo-text p {
-  font-size: 20px;
-  color: #666;
-  line-height: 1.6;
-  text-align: justify;
-  padding-bottom: 64px;
-  padding-right: 70px;
-}
-
-/* Responsive Media Queries */
-
-
-@media (max-width: 768px) {
-  .ceo-container {
-      flex-direction: row;
-      max-width: 1200px;
-  }
-
-  .ceo-text {
-      max-width: 400px;
-      padding-right: 0;
-  }
-
-  .ceo-text p {
-      font-size: 16px;
-      text-align: justify;
-      padding-right: 0;
-      padding-bottom: 30px;
-  }
-
- 
-
-  .ceo-blocks img {
-      width: 100%;
-      height: auto;
-  }
-
-  .ceo {
-      padding: 60px 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .ceo {
-      padding: 40px 15px;
-  }
-
-  .ceo-text p {
-      font-size: 14px;
-      text-align: justify;
-  }
-
-  .ceo-container {
+      justify-content: center;
+      align-items: center;
+      padding: 60px 91px 241px 91px;
+      background-color: #ffffff;
+ }
+  
+  .about-us-ceo-container {
     display: flex;
-      gap: 1rem;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    max-width: 1200px;
   }
-  .ceo-blocks img {
-    width: 320px;
-    height: 260px;
+  
+  .about-us-ceo-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+  
+  
+  .image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    padding: 8px;
+    background-color: white;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  
+  .about-us-ceo-text {
+    font-size: 20px;
+    color: #666;
+    line-height: 1.6;
+    text-align: justify;
+    padding-bottom: 10px;
+  
+  }
+  
+  .about-us-ceo-text p{
+    font-size: 20px;
+    color: #666;
+    line-height: 1.6;
+    text-align: justify;
+    padding-bottom: 10px;
+    
+  }
+
+
+
+.about-us-ceo-blocks {
+
+    gap: 1.5rem;
+    width: 450px;
+    height: 440px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
 }
 
+.about-us-ceo-blocks img{
+  width: 500px;
+  height: 590px;
 }
+.about-us-ceo-title {
+  font-family: 'Roboto Slab';
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  border-left: 6px solid #B39957;
+  padding-left: 1rem;
+}
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  
+  .about-us-ceo {
+    display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 60px 91px 241px 91px;
+        background-color: #ffffff;
+   }
+  
+  .about-us-ceo-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    max-width: 1200px;
+    max-height: 800px;
+  }
+  
+  .about-us-ceo-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+  
+  
+  .image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    padding: 8px;
+    background-color: white;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  
+  .about-us-ceo-text {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+    text-align: justify;
+    padding-bottom: 10px;
+    max-width: 200px;
+  }
+  
+  .about-us-ceo-text p{
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+    text-align: justify;
+    padding-bottom: 10px;
+  }
+
+
+
+.about-us-ceo-blocks {
+
+    gap: 1.5rem;
+    width: 450px;
+    height: 440px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.about-us-ceo-blocks img{
+  width: 50px;
+  height: 50px;
+}
+.about-us-ceo-title {
+  font-family: 'Roboto Slab';
+  color: black;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  border-left: 6px solid #B39957;
+  padding-left: 1rem;
+}
+}
+
   
 
 

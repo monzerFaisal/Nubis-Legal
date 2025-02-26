@@ -20,25 +20,25 @@ function Blog() {
   }, []);
 
   return (
-    <section className="blog-section">
-      <h2 className="blog-heading">BLOG</h2>
-      <div className="blog-heading-line"></div>
+    <section className="blog-page-section">
+      <h2 className="blog-page-heading">BLOG</h2>
+      <div className="blog-page-heading-line"></div>
 
       {loading ? (
         <p>Loading posts...</p>
       ) : posts.length > 0 ? (
         posts.map((post) => (
-          <article key={post.id} className="blog-post">
-            <div className="blog-image">
+          <article key={post.id} className="blog-page-post">
+            <div className="blog-page-image">
               <img 
                 src={post._embedded?.['wp:featuredmedia']?.[0]?.source_url || 'https://via.placeholder.com/150'} 
                 alt={post.title.rendered} 
               />
             </div>
-            <div className="blog-content">
-              <h3 className="blog-title">{post.title.rendered}</h3>
-              <div className="blog-date">{new Date(post.date).toLocaleDateString()}</div>
-              <p className="blog-excerpt" dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
+            <div className="blog-page-content">
+              <h3 className="blog-page-title">{post.title.rendered}</h3>
+              <div className="blog-page-date">{new Date(post.date).toLocaleDateString()}</div>
+              <p className="blog-page-excerpt" dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
               <a href={post.link} className="read-more">
                 Read more
                 <span className="read-more-icon">
@@ -52,7 +52,7 @@ function Blog() {
         <p>No posts available.</p>
       )}
 
-      <div className="blog-buttom-line"></div>
+      <div className="blog-page-buttom-line"></div>
     </section>
   );
 }

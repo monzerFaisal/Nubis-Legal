@@ -1,6 +1,8 @@
 .parallax-section {
-  height: 300vh;
+  height: 1000vh;
   position: relative;
+  border-radius: 20px;
+  padding: 0px 20px;
 }
 
 .sticky-container {
@@ -8,6 +10,7 @@
   position: sticky;
   top: 0;
   overflow: hidden;
+  padding: 20px;
 }
 
 .background-image {
@@ -16,11 +19,13 @@
   background-size: cover;
   background-position: center;
   transition: transform 0.8s ease-out;
+  border-radius: 20px
 }
 
 .overlay {
   position: absolute;
   inset: 0;
+  padding: 20px;
   background-color: rgba(0, 0, 0, 0.6);
 }
 
@@ -35,11 +40,22 @@
 }
 
 .heading {
-  font-size: 2.5rem;
+  font-size: 40px;
   font-weight: bold;
   text-align: center;
   max-width: 64rem;
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .scroll-indicator {
@@ -51,10 +67,20 @@
 }
 
 .scroll-indicator ul {
-  list-style-type: none;
-  display: flex;
+  list-style: none;
+  display: flex
+;
   flex-direction: column;
-  gap: 1rem;
+  gap: 10px;
+  background-color: #ffffff82;
+  height: 70px;
+  width: 32px;
+  align-content: center;
+  border-radius: 17px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-right: 46px;
 }
 
 .dot {
@@ -62,22 +88,48 @@
   height: 0.75rem;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.2);
-  transition: transform 0.3s, background-color 0.3s;
+  transition: all 0.5s ease;
 }
 
 .dot[aria-current="step"] {
-  background-color: #3b82f6;
+  background-color: #1f2937;
   transform: scale(1.25);
+
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .heading {
-    font-size: 3.75rem;
+    font-size: 30px;
   }
+  
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 480px) {
   .heading {
-    font-size: 4.5rem;
+    font-size: 20px;
+  }
+
+  .scroll-indicator ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #ffffff82;
+    max-height: 50px;
+    max-width: 23px;
+    align-content: center;
+    border-radius: 17px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-right: 16px;
+  }
+  
+  .dot {
+    max-width: 0.65rem;
+    max-height: 0.65rem;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all 0.5s ease;
   }
 }

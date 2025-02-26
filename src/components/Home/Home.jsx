@@ -9,6 +9,8 @@ import { useState } from 'react';
 import ImageComponent from '../ImageComponent/ImageComponent';
 import { LuArrowUpRight } from "react-icons/lu";
 import { IoMdQuote } from "react-icons/io";
+import { FaRegMap } from "react-icons/fa";
+
 
 
 
@@ -134,29 +136,29 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
         <div className="features-layout">
           {[
             { 
-              icon: "fa-shield-alt",
+              icon: <FaRegMap />,
               title: "Experienced Legal Professionals ",
               text: "Decades of combined expertise.",
             },
             {
-              icon: "fa-rocket",
+              icon: <FaRegMap />,
               title: "Client-Focused Approach",
               text: "Tailored solutions for your unique needs.",
             },
             {
-              icon: "fa-infinity",
+              icon: <FaRegMap />,
               title: "Modern Legal Solutions",
               text: "Leveraging technology for efficiency",
             },
             { 
-              icon: "fa-headset",
+              icon: <FaRegMap />,
               title: "Transparent Pricing",
               text: "Clear, upfront costs with no hidden fees",
             },
           ].map((feature, index) => (
             <div className="feature-card" key={index}>
               <div className="feature-icon">
-                <i className={`fas ${feature.icon}`}></i>
+              {feature.icon}
               </div>
               <h3>{feature.title}</h3>
               <p>{feature.text}</p>
@@ -171,21 +173,21 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
            {/* -- CEO Section -- */}
      <section className="ceo" id="ceo">
         <div className="ceo-container">
-          <div className="ceo-content"></div>
+          
            {/* Right Text Section */}
            <div className="ceo-text">
                 <p>&quot; The legal world is constantly evolving, and so are we. At Nubis Legal Consultancy, we believe that every individual and business deserves access to top-tier legal services, we believe that legal services should be more than just transactions—they should be partnerships built on trust, clarity, and commitment. We founded this firm to provide businesses and individuals with reliable, strategic, and results-driven legal solutions...&quot;</p>
                 <h2 className="ceo-title">CEO</h2>
             </div>
             
-          </div>
+          
            {/* Left Image Blocks */}
            <div className="ceo-blocks">
           
               
           <img src={ceo} alt="About Us 2" />
         
-
+          </div>
       </div>
 
 
@@ -298,7 +300,7 @@ When you choose Nubis, you&apos;re choosing a strategic partner committed to eas
               },
             ].map((service, index) => (
               <div key={index}>
-                <div className="service-item bg-gray-200 p-6 rounded-xl relative shadow-md hover:shadow-lg transition-transform duration-300 mx-2">
+                <div className="service-item  ">
                   <div className="service-icon flex items-center justify-center w-16 h-16 bg-gray-800 text-white rounded-lg mb-4">
                     <img 
                       src={service.icon} 

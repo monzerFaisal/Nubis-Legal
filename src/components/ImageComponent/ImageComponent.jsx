@@ -4,110 +4,58 @@ import './ImageComponent.css';
 
 const ImageComponent = ({ headings, imageUrl }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const [scale, setScale] = useState(1);
-  const [headingStyle, setHeadingStyle] = useState({
-    opacity: 1,
-    transform: 'translateY(0)'
-  });
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting); // Set visibility based on intersection
-      },
-      { threshold: 0.1 } // Trigger when 10% of the component is visible
-    );
-  
-    const currentRef = parallaxRef.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-  
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, []);
-  const [isVisible, setIsVisible] = useState(false); // Track visibility of the component
+  const [isVisible, setIsVisible] = useState(false);
 
   const parallaxRef = useRef(null);
   const stickyContainerRef = useRef(null);
 
-  // Update heading text with transition
-  const updateHeading = useCallback(() => {
-    setHeadingStyle({ opacity: 0, transform: 'translateY(20px)' });
-    setTimeout(() => {
-      setHeadingStyle({ opacity: 1, transform: 'translateY(0)' });
-    }, 500);
+  // Track component visibility
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+    const currentRef = parallaxRef.current;
+    if (currentRef) observer.observe(currentRef);
+    return () => currentRef && observer.unobserve(currentRef);
   }, []);
 
-  // Scroll handler for parallax effect and section tracking
+  // Handle scroll effects when visible
   const handleScroll = useCallback(() => {
-    if (!parallaxRef.current) return;
-    
+    if (!isVisible || !parallaxRef.current) return;
+
     const { top, height } = parallaxRef.current.getBoundingClientRect();
-    const scrollProgress = -top / (height - window.innerHeight);
+    const scrollRange = height - window.innerHeight;
+    const scrollProgress = Math.max(0, -top / scrollRange);
+
+    // Update current section index
     const newIndex = Math.min(
       Math.floor(scrollProgress * headings.length),
       headings.length - 1
     );
-
-    // Update current section index
-    if (newIndex !== currentIndex && !isTransitioning) {
-      setIsTransitioning(true);
-      setCurrentIndex(newIndex);
-      updateHeading(newIndex);
-      setTimeout(() => setIsTransitioning(false), 500);
-    }
+    if (newIndex !== currentIndex) setCurrentIndex(newIndex);
 
     // Update background scale
     setScale(1 + scrollProgress * 0.1);
-  }, [currentIndex, headings.length, isTransitioning, updateHeading]);
+  }, [isVisible, currentIndex, headings.length]);
 
-  // Intersection Observer to detect when the component is in view
+  // Attach scroll listener
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting); // Set visibility based on intersection
-      },
-      { threshold: 0.1 } // Trigger when 10% of the component is visible
-    );
-
-    const currentRef = parallaxRef.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, []);
-
-  // Scroll listener setup
-  useEffect(() => {
-    const onScroll = () => requestAnimationFrame(handleScroll);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
   return (
-    <section 
-      className="parallax-section" 
-      ref={parallaxRef}
-      aria-label="Parallax scrolling section"
-    >
-      {/* Scroll indicator dots (conditionally rendered) */}
+    <section className="parallax-section" ref={parallaxRef}>
       {isVisible && (
-        <nav className="scroll-indicator" aria-label="Page navigation">
+        <nav className="scroll-indicator">
           <ul>
-            {headings.map((_, index) => (
-              <li key={index}>
+            {headings.map((_, i) => (
+              <li key={i}>
                 <div
                   className="dot"
-                  aria-current={index === currentIndex ? 'step' : undefined}
+                  aria-current={i === currentIndex ? 'step' : undefined}
                 />
               </li>
             ))}
@@ -115,11 +63,10 @@ const ImageComponent = ({ headings, imageUrl }) => {
         </nav>
       )}
 
-      {/* Sticky container with parallax elements */}
       <div className="sticky-container" ref={stickyContainerRef}>
         <div 
           className="background-image"
-          style={{
+          style={{ 
             backgroundImage: `url(${imageUrl})`,
             transform: `scale(${scale})`
           }}
@@ -128,11 +75,7 @@ const ImageComponent = ({ headings, imageUrl }) => {
         </div>
         
         <div className="content">
-          <h2 
-            className="heading" 
-            style={headingStyle}
-            aria-live="polite"
-          >
+          <h2 key={currentIndex} className="heading">
             {headings[currentIndex]}
           </h2>
         </div>

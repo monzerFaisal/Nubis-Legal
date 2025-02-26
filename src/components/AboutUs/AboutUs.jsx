@@ -154,11 +154,11 @@ function AboutUS() {
 
       
            {/* -- About Us Section -- */}
-           <section className="about-us" id="about">
-              <div className="about-us-container">
-                <div className="about-us-content">
+           <section className="about-us-page" id="about">
+              <div className="about-us-page-container">
+                <div className="about-us-page-content">
                   {/* Left Image Blocks */}
-                  <div className="about-us-blocks">
+                  <div className="about-us-page-blocks">
       
                     
                       <img src={aboutImage2} alt="About Us 2" />
@@ -167,8 +167,8 @@ function AboutUS() {
                   </div>
       
                   {/* Right Text Section */}
-                  <div className="about-us-text">
-                    <h2 className="about-us-title">ABOUT US</h2>
+                  <div className="about-us-page-text">
+                    <h2 className="about-us-page-title">ABOUT US</h2>
       <p>&quot;At Nubis legal consultancy, we combine legal expertise with a modern, client-focused approach. Our team of seasoned professionals with experience in corporate, commercial, and civil law is dedicated to providing innovative, tailored solutions for businesses and individuals alike. We pride ourselves on delivering clarity, efficiency, and results in every case.&quot;
       <br />
       When you choose Nubis, you&apos;re choosing a strategic partner committed to easing your burden, navigating the complexity of your matter, and achieving success...

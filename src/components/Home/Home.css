@@ -196,242 +196,165 @@ body {
    About Us Section
    ====================== */
    .about-us {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 136px 50px 0px;
+    padding: 6rem 1.5rem;
     background-color: #ffffff;
   }
   
   .about-us-container {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
   }
   
   .about-us-content {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
     gap: 2rem;
-    justify-content: space-evenly;
-    max-width: 1200px;
+    justify-content: center;
+    align-items: center;
   }
   
   .about-us-blocks {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 1.5rem;
-    width: 450px;
-    height: 500px;
+    flex: 1 1 400px;
+    max-width: 500px;
   }
   
   .about-us-blocks img {
-    width: 500px;
-    height: 600px;
-    object-fit: cover;
+    width: 100%;
+    height: auto;
     border-radius: 12px;
+    aspect-ratio: 5/6;
+    object-fit: cover;
   }
   
   .about-us-text {
-    flex: 1;
-    max-width: 500px;
-    padding-top: 100px;
-    padding-left: 100px;
+    flex: 1 1 500px;
+    padding: 1rem;
   }
   
   .about-us-title {
-    font-family: 'Roboto Slab';
-    font-size: 40px;
-    font-weight: bold;
-    margin-bottom: 1rem;
+    font-family: 'Roboto Slab', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
     border-left: 5px solid #B39957;
     padding-left: 1rem;
+    line-height: 1.2;
   }
   
   .about-us-text p {
-    font-size: 20px;
+    font-size: 1.125rem;
     color: #666;
-    line-height: 1.6;
-    padding-bottom: 46px;
+    line-height: 1.7;
+    margin-bottom: 2rem;
   }
   
   .about-us-btn {
+    display: inline-block;
     padding: 0.8rem 2rem;
-    border-radius: 10px;
-    font-size: 25px;
-    background: black;
-    color: white;
+    border-radius: 0.625rem;
+    font-size: 1.125rem;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
     transition: all 0.3s ease;
   }
   
   .about-us-btn:hover {
-    transform: scale(1.05) translateY(-4px);
-    box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   }
   
   /* ======================
      Responsive Design
      ====================== */
-    @media (max-width: 768px) {
-      .about-us {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 136px 50px 0px;
-        background-color: #ffffff;
-      }
-      
-      .about-us-container {
-        display: flex;
-        gap: 2rem;
-        align-items: center;
-        justify-content: space-evenly;
-        width: 668px;
-      }
-      
-      .about-us-content {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 2rem;
-        justify-content: space-evenly;
-        max-width: 1200px;
-      }
-      
-      .about-us-blocks {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-        gap: 1.5rem;
-        width: 450px;
-        height: 500px;
-      }
-      
-      .about-us-blocks img {
-        width: 345px;
-        height: 440px;
-        object-fit: cover;
-        border-radius: 12px;
-      }
-      
-      .about-us-text {
-        flex: 1;
-      }
-      
-      .about-us-title {
-        font-family: 'Roboto Slab';
-        font-size: 30px;
-        font-weight: bold;
-        margin-bottom: 1rem;
-        border-left: 5px solid #B39957;
-        padding-left: 0px;
-      }
-      
-      .about-us-text p {
-        font-size: 15px;
-        color: #666;
-        text-align: start;
-        padding-bottom: 20px;
-      }
-      
-      .about-us-btn {
-        padding: 6px 10px;
-        border-radius: 10px;
-        font-size: 25px;
-        background: black;
-        color: white;
-        transition: all 0.3s ease;
-        
-      }
-      
-      .about-us-btn:hover {
-        transform: scale(1.05) translateY(-4px);
-        box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.15);
-      }
+
+  
+  @media (max-width: 768px) {
+    .about-us {
+      padding: 136px 50px;
     }
+    .about-us-content {
+      gap: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .about-us img{
+      width: 100%;
+      height: 460px;
+      border-radius: 12px;
+      aspect-ratio: 5 / 6;
+      object-fit: cover;
+    }
+  
+    .about-us-title {
+      font-size: 30px;
+      padding-left: 3px;
+      border-left: 5px solid #B39957;
+    }
+
+    .about-us-blocks{
+      max-width: 300px;
+    }
+    .about-us-text{
+      max-width: 300px;
+    }
+  
+    .about-us-text p {
+      font-size:  15px;
+    }
+  
+    .about-us-btn {
+      width: 100px;
+      max-width: 300px;
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
+    }
+  }
+  
   
   @media (max-width: 480px) {
     .about-us {
-      padding: 40px 15px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #ffffff;
+      padding: 136px 50px;
     }
-    .about-us-container {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-      justify-content: space-evenly;
-      width: 450px;
-    }
-    
     .about-us-content {
-      display: flex;
-      flex-direction: column-reverse;
-      flex-wrap: wrap;
-      align-items: center;
       gap: 1rem;
-      justify-content: center;
-      max-width: 450px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
     }
-    
-    .about-us-blocks {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(4, 1fr);
-      gap: 1.5rem;
-      width: 360px;
-      height: 500px;
-    }
-    
-    .about-us-blocks img {
-      width: 345px;
-      height: 440px;
-      object-fit: cover;
+    .about-us img{
+      width: 211px;
+      height: 289px;
       border-radius: 12px;
+      aspect-ratio: 5 / 6;
+      object-fit: cover;
     }
-    
-    .about-us-text {
-      padding-bottom: 30px;
-      flex: 1;
-    }
-    
+  
     .about-us-title {
-      font-family: 'Roboto Slab';
       font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 1rem;
+      padding-left: 3px;
       border-left: 5px solid #B39957;
-      padding-left: 0px;
     }
-    
+
+    .about-us-blocks{
+      max-width: 300px;
+    }
+    .about-us-text{
+      max-width: 300px;
+    }
+  
     .about-us-text p {
-      font-size: 15px;
-      color: #666;
-      text-align: justify;
-      padding-bottom: 20px;
+      font-size:  15px;
     }
-    
+  
     .about-us-btn {
-      padding: 6px 10px;
-      border-radius: 10px;
-      font-size: 25px;
-      background: black;
-      color: white;
-      transition: all 0.3s ease;
-      
-    }
-    
-    .about-us-btn:hover {
-      transform: scale(1.05) translateY(-4px);
-      box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.15);
+      width: 100px;
+      max-width: 300px;
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
     }
   }
 
@@ -442,11 +365,14 @@ body {
  ====================== */
  .features {
   display: flex;
+  background: rgb(2,0,36) !important;
+  background: linear-gradient(to top, #002B5A 0%, #034892 50%, #055dbb 100%) !important;
   flex-wrap: wrap;
   align-items: flex-start;
   background: #fff;
   gap: 2rem;
   padding: 136px 50px 136px 50px;
+  margin-top: 130px;
 }
 
 .features-container {
@@ -466,7 +392,7 @@ body {
   font-size: 40px;
   text-transform: uppercase;
   font-weight: bold;
-  color: #000;
+  color: white;
   line-height: 1.2;
 }
 
@@ -481,15 +407,17 @@ body {
 }
 
 .feature-card {
-  background: #e4e4e4;
+  background: transparent;
   padding: 2rem;
   border-radius: 1rem;
   text-align: left;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  max-width: 370px;
-  width: 100%; /* Ensure cards take full width on smaller screens */
-  height: auto;
+  width: 384px; /* Ensure cards take full width on smaller screens */
+  height: 250px;
+  border: 4px solid #fff;
+  box-sizing: border-box;
+
 }
 
 .feature-card:hover {
@@ -500,26 +428,26 @@ body {
 .feature-icon {
   width: 56px;
   height: 56px;
-  background: #333;
+  background: #ffffff63;
   color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-  font-size: 1.5rem;
+  font-size: 2.3rem;
 }
 
 .feature-card h3 {
-  font-size: 1.3rem;
+  font-size: 23px;
   margin-bottom: 1rem;
   font-weight: bold;
-  color: #000;
+  color: white;
 }
 
 .feature-card p {
-  font-size: 0.95rem;
-  color: #4a4a4a;
+  font-size: 15px;
+  color: white;
   line-height: 1.6;
 }
 
@@ -532,78 +460,198 @@ body {
  Responsive Design
  ====================== */
 
-/* For Tablets (1024px and below) */
-@media (max-width: 1024px) {
-  .features {
-    padding: 6rem 2rem; /* Adjusted padding */
-  }
-
-  .feature-header h2 {
-    font-size: 2.2rem;
-    padding-bottom: 80px; /* Reduced padding */
-  }
-
-  .features-layout {
-    justify-content: center; /* Center cards */
-  }
-
-  .feature-card {
-    max-width: 45%; /* Two cards per row */
-  }
-}
-
 /* For iPad (768px and below) */
 @media (max-width: 768px) {
   .features {
-    padding: 4rem 1.5rem; /* Further reduced padding */
+    display: flex;
+    background: rgb(2,0,36) !important;
+    background: linear-gradient(to top, #002B5A 0%, #034892 50%, #055dbb 100%) !important;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    background: #fff;
+    gap: 2rem;
+    padding: 100px 30px 100px 30px;
+    margin-top: 130px;
   }
-
-  .feature-header h2 {
-    font-size: 2rem;
-    padding-bottom: 60px; /* Further reduced padding */
-  }
-
-  .features-layout {
-    flex-direction: column; /* Stack cards vertically */
+  
+  .features-container {
+    display: grid;
+    flex-direction: row;
+    gap: 2rem;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto; /* Center the container */
   }
-
+  
+  .feature-header h2 {
+    display: grid;
+    padding-bottom: 30px;
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    line-height: 1.2;
+  }
+  
+  
+  
+  .features-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center; /* Center cards on smaller screens */
+    max-width: 668px;
+  }
+  
   .feature-card {
-    max-width: 90%; /* Wider cards for better readability */
+    background: transparent;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: left;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 320px; /* Ensure cards take full width on smaller screens */
+    height: 200px;
+    border: 3px solid #fff;
+    box-sizing: border-box;
+  
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+    background: #ffffff63;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 2.3rem;
+  }
+  
+  .feature-card h3 {
+    font-size: 15px;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .feature-card p {
+    font-size: 10px;
+    color: white;
+    line-height: 1.6;
+  }
+  
+  /* Hover Animation */
+  .feature-card:hover .feature-icon {
+    animation: iconBounce 0.6s ease;
   }
 }
+
 
 /* For Phones (480px and below) */
 @media (max-width: 480px) {
   .features {
-    padding: 3rem 1rem; /* Minimal padding */
+    display: flex;
+    background: rgb(2,0,36) !important;
+    background: linear-gradient(to top, #002B5A 0%, #034892 50%, #055dbb 100%) !important;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    background: #fff;
+    gap: 2rem;
+    padding: 80px 30px;
+    margin-top: 130px;
   }
-
+  
+  .features-container {
+    display: grid;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto; /* Center the container */
+  }
+  
   .feature-header h2 {
-    font-size: 1.8rem;
-    padding-bottom: 40px; /* Minimal padding */
+    display: grid;
+    padding-bottom: 30px;
+    align-items: center;
+    text-align: center;
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    line-height: 1.2;
   }
-
+  
+  
+  
+  .features-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center; /* Center cards on smaller screens */
+    max-width: 668px;
+  }
+  
   .feature-card {
-    max-width: 100%; /* Full-width cards */
-    padding: 1.5rem; /* Adjusted padding */
+    background: transparent;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: left;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 320px; /* Ensure cards take full width on smaller screens */
+    max-height: 180px;
+    border: 3px solid #fff;
+    box-sizing: border-box;
+  
   }
-
+  
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+  
   .feature-icon {
-    width: 48px;
-    height: 48px;
-    font-size: 1.2rem; /* Smaller icon */
+    width: 40px;
+    height: 40px;
+    background: #ffffff63;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 2.3rem;
   }
-
+  
   .feature-card h3 {
-    font-size: 1.2rem; /* Smaller heading */
+    font-size: 15px;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: white;
   }
-
+  
   .feature-card p {
-    font-size: 0.9rem; /* Smaller text */
+    font-size: 10px;
+    color: white;
+    line-height: 1.6;
+  }
+  
+  /* Hover Animation */
+  .feature-card:hover .feature-icon {
+    animation: iconBounce 0.6s ease;
   }
 }
-
 
 /* ======================
    ceo Section
@@ -612,11 +660,11 @@ body {
 
    .ceo {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 136px 91px 136px 91px;
-    background-color: #ffffff;
-  }
+        justify-content: center;
+        align-items: center;
+        padding: 60px 91px 136px 91px;
+        background-color: #ffffff;
+   }
   
   .ceo-container {
     display: flex;
@@ -648,35 +696,41 @@ body {
 
   
   .ceo-text {
-    
-    max-width: 500px;
+    font-size: 20px;
+    color: #666;
+    line-height: 1.6;
+    text-align: justify;
+    padding-bottom: 10px;
     
   }
   
   .ceo-text p{
-    padding-bottom: 10px;
     font-size: 20px;
+    color: #666;
+    line-height: 1.6;
+    text-align: justify;
+    padding-bottom: 10px;
+    padding-top: 370px;
   }
 
 
 
 .ceo-blocks {
-  display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+
     gap: 1.5rem;
     width: 450px;
-    height: 800px;
+    height: 440px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
 }
 
 .ceo-blocks img{
-width: 550px;
-    height: 633px;
+  width: 500px;
+  height: 590px;
 }
 .ceo-title {
   font-family: 'Roboto Slab';
+  color: black;
   font-size: 40px;
   font-weight: bold;
   margin-bottom: 1rem;
@@ -686,20 +740,21 @@ width: 550px;
 
 /* For iPad (768px and below) */
 @media (max-width: 768px) {
+  
   .ceo {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 136px 50px 136px 50px;
-    background-color: #ffffff;
-  }
+        justify-content: center;
+        align-items: center;
+        padding: 60px 91px 136px 91px;
+        background-color: #ffffff;
+   }
   
   .ceo-container {
     display: flex;
     flex-direction: row;
     gap: 2rem;
     align-items: center;
-    max-width: 668px;
+    max-width: 1200px;
   }
   
   .ceo-content {
@@ -724,38 +779,41 @@ width: 550px;
 
   
   .ceo-text {
-    
-    max-width: 500px;
-    padding-top: 103px;
-    
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+    text-align: justify;
+    padding-bottom: 10px;
   }
   
   .ceo-text p{
-    padding-bottom: 10px;
+    padding-top: 170px;
     font-size: 15px;
+    color: #666;
+    line-height: 1.6;
     text-align: justify;
-    padding-bottom: 25px;
+    padding-bottom: 10px;
+    max-width: 550px;
   }
 
 
 
 .ceo-blocks {
-  display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+
     gap: 1.5rem;
     width: 450px;
-    height: 800px;
+    height: 440px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
 }
 
 .ceo-blocks img{
-width: 400px;
-    height: 430px;
+  max-width: 300px;
+  max-height: 410px;
 }
 .ceo-title {
   font-family: 'Roboto Slab';
+  color: black;
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 1rem;
@@ -763,7 +821,6 @@ width: 400px;
   padding-left: 1rem;
 }
 }
-
 /* For Phones (480px and below) */
 @media (max-width: 480px) {
   .ceo {
@@ -777,10 +834,10 @@ width: 400px;
   
   .ceo-container {
     display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    align-items: center;
-    max-width: 668px;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        max-width: 400px;
   }
   
   .ceo-content {
@@ -813,8 +870,9 @@ width: 400px;
   
   .ceo-text p{
     padding-bottom: 10px;
-    font-size: 15px;
+    font-size: 10px;
     text-align: justify;
+    
     
   }
 
@@ -822,19 +880,20 @@ width: 400px;
 
 .ceo-blocks {
   display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+
     gap: 1.5rem;
     width: 450px;
-    height: 800px;
+    height: 420px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
 }
 
 .ceo-blocks img{
-width: 400px;
-    height: 430px;
+  max-width: 400px;
+  max-height: 410px;
+  margin-left: 50px;
 }
+
 .ceo-title {
   font-family: 'Roboto Slab';
   font-size: 20px;
@@ -959,48 +1018,210 @@ width: 400px;
   /* For iPad (768px and below) */
   @media (max-width: 768px) {
     .services {
-      padding: 4rem 1.5rem; /* Further reduced padding */
+      padding: 136px 50px 136px 50px;
+      background: linear-gradient(45deg, #f8fafc, #f1f5f9);
     }
-  
+    
+    .services-header {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+    .services-title{
+      font-family: 'Roboto Slab';
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      border-left: 5px solid #B39957;
+      padding-left: 1rem;
+    }
     .services-header h2 {
-      font-size: 2rem; /* Smaller font size */
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #111; /* Added for better contrast */
     }
-  
+    
     .services-grid {
-      grid-template-columns: 1fr; /* Stack items vertically */
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding-top: 20px;
     }
-  
+    .swiper-wrapper{
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    
     .service-item {
-      padding: 1.5rem; /* Adjusted padding */
+      background: rgb(3, 45, 101); /* Faded blue with transparency */
+      background: rgb(3, 45, 101);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: left;
+      position: relative;
+      transition: transform 0.3sease, box-shadow 0.3sease;
+      max-height: 330px;
+      max-width: 290px;
+      border: 1px solid rgba(191, 219, 254, 0.2);
+      box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.05);
+  
     }
-  }
+    
+    .service-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .service-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 56px;
+      max-height: 56px;
+      background-color: #213d8a; /* Your blue background */
+      border-radius: 12px;
+    }
+    
+    .service-icon img {
+      filter: brightness(0) invert(1);
+      max-width: 47%;
+      max-height: 52%;
+      object-fit: contain;
+  
+    }
+    
+    .service-item h3 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+    
+    .service-item p {
+      font-size: 1rem;
+      color: white;
+      line-height: 1.6;
+    }
+    
+    .service-item div:last-child {
+      position: absolute;
+      bottom: -2.5px;
+      right: 1rem;
+      font-size: 2.5rem;
+      color: white;
+      transition: transform 0.3s ease;
+    }
+    
+    .service-item:hover div:last-child {
+      transform: translateX(5px);
+    }
+  }  
   
   /* For Phones (480px and below) */
   @media (max-width: 480px) {
     .services {
-      padding: 3rem 1rem; /* Minimal padding */
+      padding: 136px 30px 136px 30px;
+      background: linear-gradient(45deg, #f8fafc, #f1f5f9);
     }
-  
+    
+    .services-header {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+    .services-title{
+      font-family: 'Roboto Slab';
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      border-left: 5px solid #B39957;
+      padding-left: 1rem;
+    }
     .services-header h2 {
-      font-size: 1.8rem; /* Smaller font size */
+      font-size: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #111; /* Added for better contrast */
     }
-  
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding-top: 20px;
+    }
+    .swiper-wrapper{
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    
     .service-item {
-      padding: 1.2rem; /* Minimal padding */
-    }
+      background: rgb(3, 45, 101); /* Faded blue with transparency */
+      background: rgb(3, 45, 101);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: left;
+      position: relative;
+      transition: transform 0.3sease, box-shadow 0.3sease;
+      max-height: 260px;
+      max-width: 243px;
+      border: 1px solid rgba(191, 219, 254, 0.2);
+      box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.05);
   
+    }
+    
+    .service-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+    
     .service-icon {
-      width: 56px; /* Smaller icon */
-      height: 56px;
-      font-size: 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 45px;
+      max-height: 45px;
+      background-color: #213d8a; /* Your blue background */
+      border-radius: 12px;
     }
+    
+    .service-icon img {
+      filter: brightness(0) invert(1);
+      max-width: 41%;
+      max-height: 44%;
+      object-fit: contain;
   
+    }
+    
     .service-item h3 {
-      font-size: 1.3rem; /* Smaller heading */
+      font-size: 15px;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 0.5rem;
     }
-  
+    
     .service-item p {
-      font-size: 0.9rem; /* Smaller text */
+      font-size: 10px;
+      color: white;
+      line-height: 1.6;
+    }
+    
+    .service-item div:last-child {
+      position: absolute;
+      bottom: -2.5px;
+      right: 1rem;
+      font-size: 2.5rem;
+      color: white;
+      transition: transform 0.3s ease;
+    }
+    
+    .service-item:hover div:last-child {
+      transform: translateX(5px);
     }
   }
 
@@ -1125,9 +1346,119 @@ width: 400px;
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .testimonials {
-      padding: 80px 40px;
+    padding: 136px 50px;
+    background: linear-gradient(135deg, #f9fafb, #e5e7eb);
+    text-align: center;
   }
-}
+  
+  .testimonials-header {
+    font-family: 'Roboto Slab';
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    padding-bottom: 20px;
+    color: #111827;
+  }
+  
+  .testimonials-title{
+      font-family: 'Roboto Slab';
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    padding-bottom: 20px;
+    color: #111827;
+  }
+  
+  /* Testimonial Wrapper */
+  .testimonial-wrapper {
+    position: relative;
+    margin-top: 48px;
+  }
+  
+  /* Avatar */
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -48px;
+    left: 35%;
+    transform: translateX(-50%);
+    border: 4px solid white;
+    z-index: 2;
+    object-fit: cover;
+  }
+  
+  /* Testimonial Card */
+  .testimonial-card {
+    background: #002147;
+    padding: 64px 32px 48px;
+    border-radius: 16px;
+    position: relative;
+    max-width: 500px;
+    max-height: 335px;
+    margin: 0 auto;
+  }
+  
+  .quote-mark {
+    color: #FFB800;
+    font-size: 38px;
+    font-family: serif;
+    display: block;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  
+  /* Client Info */
+  .client-info {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+  
+  .client-name {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .client-role {
+    color: #e5e7eb;
+    font-size: 0.9rem;
+  }
+  
+  /* Testimonial Text */
+  .testimonial-text {
+    color: white;
+    text-align: center;
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+  
+  /* Dots Navigation */
+  .dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+  }
+  
+  .dot {
+    width: 6px;
+    height: 6px;
+    background-color: #e5e5e5;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .dot.active {
+    width: 22px;
+    background-color: #2563eb;
+    border-radius: 999px;
+  }
+  }
+
 
 @media (max-width: 480px) {
   .testimonials {
@@ -1162,7 +1493,7 @@ width: 400px;
 
 .blog-header {
   font-family: 'Roboto Slab';
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
   
   border-left: 6px solid #B39957;
@@ -1170,6 +1501,7 @@ width: 400px;
 
 .blog-header h2 {
   padding-left: 10px;
+  font-size: 40px;
 }
 
 .blog-grid {
@@ -1214,7 +1546,7 @@ width: 400px;
 }
 
 .blog-item h3 {
-  font-size: 1.25rem;
+  font-size: 23px;
   font-weight: bold;
   color: #111;
   margin-top: 8px;
@@ -1222,7 +1554,7 @@ width: 400px;
 }
 
 .blog-item p {
-  font-size: 0.875rem;
+  font-size: 15px;
   color: #444;
   line-height: 1.6;
 }
@@ -1251,55 +1583,169 @@ width: 400px;
 }
 
 /* Responsive Adjustments */
-@media (max-width: 1024px) {
-  .blog-section {
-    padding: 6rem 2rem; /* Adjusted padding */
-  }
-
-  .blog-item {
-    min-width: 320px; /* Slightly smaller cards */
-  }
-}
 
 @media (max-width: 768px) {
   .blog-section {
-    padding: 4rem 1.5rem; /* Further reduced padding */
+    padding: 136px 50px 0px 50px;
+    background: linear-gradient(45deg, #f8fafc, #f1f5f9);
   }
-
+  
+  .blog-header {
+    font-family: 'Roboto Slab';
+    font-size: 30px;
+    font-weight: bold;
+    
+    border-left: 6px solid #B39957;
+  }
+  
+  .blog-header h2 {
+    padding-left: 10px;
+    font-size: 30px;
+  }
+  
+  .blog-grid {
+    display: flex;
+    gap: 24px; /* Spacing between cards */
+    overflow-x: auto; /* Enables horizontal scrolling */
+    padding-bottom: 1rem;
+   
+    padding-top: 30px;
+    padding-bottom: 50px;
+    /* Hide scrollbar styles */
+    scrollbar-width: none; /* For Firefox */
+  }
+  
+  .blog-grid::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Edge */
+  }
+  
   .blog-item {
-    min-width: 280px; /* Smaller cards for tablets */
+    background: #e5e7eb;
+    border-radius: 20px;
+    padding: 10px; /* Adjust padding */
+    flex: 0 0 auto; /* Prevent shrinking and makes the width fixed */
+    min-width: 280px; /* Sets consistent width for the cards */
+    min-height: 400px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    scroll-snap-align: start; /* Aligns the card to the start when scrolling */
+    position: relative; /* For positioning elements like the circle */
   }
-
+  
+  .blog-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
   .blog-image img {
-    width: 300; /* Full-width images */
-    height: 300; /* Maintain aspect ratio */
+    width: 300px;
+    height: 300px;
+    border-radius: 16px; /* Rounded corners for the image */
+    object-fit: cover;
   }
+  
+  .blog-item h3 {
+    font-size: 15px;
+    font-weight: bold;
+    color: #111;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .blog-item p {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.6;
+  }
+  
+  .blog-item a {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #2563eb;
+    transition: color 0.3s ease;
+  }
+  
 }
 
 @media (max-width: 480px) {
   .blog-section {
-    padding: 3rem 1rem; /* Minimal padding */
+    padding: 136px 30px 0px 30px;
+    background: linear-gradient(45deg, #f8fafc, #f1f5f9);
   }
-
+  
   .blog-header {
-    font-size: 1.8rem; /* Smaller font size */
+    font-family: 'Roboto Slab';
+    font-size: 20px;
+    font-weight: bold;
+    
+    border-left: 6px solid #B39957;
   }
-
+  
+  .blog-header h2 {
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  
+  .blog-grid {
+    display: flex;
+    gap: 24px; /* Spacing between cards */
+    overflow-x: auto; /* Enables horizontal scrolling */
+    padding-bottom: 1rem;
+   
+    padding-top: 30px;
+    padding-bottom: 50px;
+    /* Hide scrollbar styles */
+    scrollbar-width: none; /* For Firefox */
+  }
+  
+  .blog-grid::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Edge */
+  }
+  
   .blog-item {
-    min-width: 240px; /* Smaller cards for phones */
-    min-height: 400px; /* Adjusted height */
+    background: #e5e7eb;
+    border-radius: 20px;
+    padding: 10px; /* Adjust padding */
+    flex: 0 0 auto; /* Prevent shrinking and makes the width fixed */
+    min-width: 180px; /* Sets consistent width for the cards */
+    min-height: 400px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    scroll-snap-align: start; /* Aligns the card to the start when scrolling */
+    position: relative; /* For positioning elements like the circle */
   }
-
+  
+  .blog-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .blog-image img {
+    max-width: 250px;
+    max-height: 250px;
+    border-radius: 16px; /* Rounded corners for the image */
+    object-fit: cover;
+  }
+  
   .blog-item h3 {
-    font-size: 1.1rem; /* Smaller heading */
+    font-size: 13px;
+    font-weight: bold;
+    color: #111;
+    margin-top: 8px;
+    margin-bottom: 8px;
   }
-
+  
   .blog-item p {
-    font-size: 0.8rem; /* Smaller text */
+    font-size: 10px;
+    color: #444;
+    line-height: 1.6;
   }
-
+  
   .blog-item a {
-    font-size: 0.8rem; /* Smaller link text */
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #2563eb;
+    transition: color 0.3s ease;
   }
 }
 
@@ -1376,6 +1822,33 @@ width: 400px;
   height: 80px;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 50%;
+}
+@media (max-width: 768px) {
+  .text-container {
+    font-size: 20px;
+    left: 5%;
+  }
+
+  .circle {
+    width: 60px;
+    height: 60px;
+    right: 5%;
+  }
+  
+}
+@media (max-width: 480px) {
+  .text-container {
+    font-size: 15px;
+    left: 5%;
+  }
+
+  .circle {
+    width: 35px;
+    height: 35px;
+    right: 4%;
+    top: 110px;
+  }
+  
 }
 
 /* ======================

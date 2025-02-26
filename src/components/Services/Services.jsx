@@ -174,22 +174,22 @@ function Services() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="services" id="services">
+       {/* Services Section */}
+       <section className="service-page" id="services">
         <div className="container mx-auto px-4 py-16">
-          <header className="services-header flex items-center mb-12">
+          <header className="service-page-header flex items-center mb-12">
             <span className="w-1 h-10 bg-gray-400 mr-3" aria-hidden="true"></span>
-            <h2 className="services-title">Our Services</h2>
+            <h2 className="service-page-title">Our Services</h2>
           </header>
 
-          <div className="services-grid" role="list">
+          <div className="service-page-grid" role="list">
             {currentServices.map((service) => (
               <article 
-              key={service.id}
-              className="service-item bg-gray-200 p-6 rounded-xl relative shadow-md hover:shadow-lg transition-transform duration-300 mx-2"
-              role="listitem"
-            >
-                <div className="service-icon flex items-center justify-center w-16 h-16 bg-gray-800 text-white rounded-lg mb-4">
+                key={service.id}
+                className="service-page-item bg-gray-200 p-6 rounded-xl relative shadow-md hover:shadow-lg transition-transform duration-300 mx-2"
+                role="listitem"
+              >
+                <div className="service-page-icon flex items-center justify-center w-16 h-16 bg-gray-800 text-white rounded-lg mb-4">
                   <img 
                     src={service.icon} 
                     alt={`Icon for ${service.title}`}
@@ -200,13 +200,13 @@ function Services() {
                 <p className="text-base text-gray-700 leading-relaxed">{service.description}</p>
                 <p className="text-base text-gray-700 leading-relaxed">{service.text}</p>
                 <Link 
-      to={`/services/${service.path}`}  // Update this path according to your routing
-      className="services-link"
-      aria-label={`View details for ${service.title}`}
-    >
-      <LuArrowUpRight />
-    </Link>
-  </article>
+                  to={`/services/${service.path}`}
+                  className="service-page-link"
+                  aria-label={`View details for ${service.title}`}
+                >
+                  <LuArrowUpRight />
+                </Link>
+              </article>
             ))}
           </div>
 
@@ -216,5 +216,4 @@ function Services() {
     </>
   );
 }
-
-export default Services;
+  export default Services;
