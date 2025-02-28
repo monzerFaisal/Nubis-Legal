@@ -1,6 +1,10 @@
 import './AboutUS.css';
 import backgroundImage from '../img/loading.png';
 import aboutImage2 from '../img/jera.jpeg';
+import ourarea from '../img/assets/AboutUS/our area of experites macbook.png';
+import missionImage from '../img/assets/AboutUS/our mission macbook screen.png'; // Import mission image
+import visionImage from '../img/assets/AboutUs/our vission macbook screen.png'; // Import vision image
+import valuesImage from '../img/assets/AboutUS/our value macbook screen.png'; // Import values image
 import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
@@ -53,30 +57,14 @@ function AboutUS() {
     };
   }, []); // Empty dependency array means this runs once on mount
 
-
   const renderGoalContent = () => {
     switch (activeTab) {
       case "mission":
-        return (
-          <p>
-            Our mission is to provide innovative solutions to our customers
-            while fostering sustainability and social responsibility.
-          </p>
-        );
+        return <p>Our mission is to provide innovative solutions...</p>;
       case "vision":
-        return (
-          <p>
-            Our vision is to be a global leader in our industry, shaping the
-            future through innovation and excellence.
-          </p>
-        );
+        return <p>Our vision is to be a global leader...</p>;
       case "values":
-        return (
-          <p>
-            Our core values include integrity, customer focus, collaboration,
-            and continuous improvement.
-          </p>
-        );
+        return <p>Our core values include integrity...</p>;
       default:
         return null;
     }
@@ -152,35 +140,26 @@ function AboutUS() {
         </div>
       </section>
 
-      
-           {/* -- About Us Section -- */}
-           <section className="about-us-page" id="about">
-              <div className="about-us-page-container">
-                <div className="about-us-page-content">
-                  {/* Left Image Blocks */}
-                  <div className="about-us-page-blocks">
-      
-                    
-                      <img src={aboutImage2} alt="About Us 2" />
-                    
-      
-                  </div>
-      
-                  {/* Right Text Section */}
-                  <div className="about-us-page-text">
-                    <h2 className="about-us-page-title">ABOUT US</h2>
-      <p>&quot;At Nubis legal consultancy, we combine legal expertise with a modern, client-focused approach. Our team of seasoned professionals with experience in corporate, commercial, and civil law is dedicated to providing innovative, tailored solutions for businesses and individuals alike. We pride ourselves on delivering clarity, efficiency, and results in every case.&quot;
-      <br />
-      When you choose Nubis, you&apos;re choosing a strategic partner committed to easing your burden, navigating the complexity of your matter, and achieving success...
-      </p>
-                      
-                  </div>
-                  
-                </div>
-                
-              </div>
-            </section>
-      
+      {/* -- About Us Section -- */}
+      <section className="about-us-page" id="about">
+        <div className="about-us-page-container">
+          <div className="about-us-page-content">
+            {/* Left Image Blocks */}
+            <div className="about-us-page-blocks">
+              <img src={aboutImage2} alt="About Us 2" />
+            </div>
+
+            {/* Right Text Section */}
+            <div className="about-us-page-text">
+              <h2 className="about-us-page-title">ABOUT US</h2>
+              <p>&quot;At Nubis legal consultancy, we combine legal expertise with a modern, client-focused approach. Our team of seasoned professionals with experience in corporate, commercial, and civil law is dedicated to providing innovative, tailored solutions for businesses and individuals alike. We pride ourselves on delivering clarity, efficiency, and results in every case.&quot;
+              <br />
+              When you choose Nubis, you&apos;re choosing a strategic partner committed to easing your burden, navigating the complexity of your matter, and achieving success...
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* -- CEO Section -- */}
       <section className="ceo" id="about">
@@ -240,9 +219,7 @@ function AboutUS() {
         <div className="nimo-container">
           <div className="nimo-content">
             <div className="nimo-blocks">
-              <span><img src={aboutImage2} alt="About Us 2" /></span>
-              <span><img src={aboutImage2} alt="About Us 2" /></span>
-              <span><img src={aboutImage2} alt="About Us 2" /></span>
+              <span><img src={ourarea} alt="About Us 2" /></span>
             </div>
             <div className="nimo-text">
               <h2 className="nimo-title">ABOUT US</h2>
@@ -259,49 +236,55 @@ function AboutUS() {
         </div>
       </section>
 
-      {/* -- Company Goal Section -- */}
-      <section className="c-goal" id="goal">
-        <div className="c-goal-container">
-          <div className="c-goal-content">
-            <div className="c-goal-text">
-              <h2 className="c-goal-title">Our Main Company Goal</h2>
-              <div className="c-goal-btn">
-                <button
-                  className={activeTab === "mission" ? "active" : ""}
-                  onClick={() => setActiveTab("mission")}
-                >
-                  Mission
-                </button>
-                <button
-                  className={activeTab === "vision" ? "active" : ""}
-                  onClick={() => setActiveTab("vision")}
-                >
-                  Vision
-                </button>
-                <button
-                  className={activeTab === "values" ? "active" : ""}
-                  onClick={() => setActiveTab("values")}
-                >
-                  Values
-                </button>
-              </div>
-              {renderGoalContent()}
-            </div>
-          </div>
-          <div className="c-goal-blocks">
-            <img src={aboutImage2} alt="About Us 2" />
-          </div>
+{/* -- Company Goal Section -- */}
+<section className="c-goal" id="goal">
+  <div className="c-goal-container">
+    {/* Left Content */}
+    <div className="c-goal-content">
+      <div className="c-goal-text">
+        <h2 className="c-goal-title">Our Main Company Goal</h2>
+        <div className="c-goal-btn">
+          <button
+            className={activeTab === "mission" ? "active" : ""}
+            onClick={() => setActiveTab("mission")}
+          >
+            Mission
+          </button>
+          <button
+            className={activeTab === "vision" ? "active" : ""}
+            onClick={() => setActiveTab("vision")}
+          >
+            Vision
+          </button>
+          <button
+            className={activeTab === "values" ? "active" : ""}
+            onClick={() => setActiveTab("values")}
+          >
+            Values
+          </button>
         </div>
-      </section>
+        {renderGoalContent()}
+      </div>
+    </div>
+
+    {/* Right Image */}
+    <div className="c-goal-blocks">
+      {activeTab === "mission" && <img src={missionImage} alt="Mission" className="c-goal-image" />}
+      {activeTab === "vision" && <img src={visionImage} alt="Vision" className="c-goal-image" />}
+      {activeTab === "values" && <img src={valuesImage} alt="Values" className="c-goal-image" />}
+    </div>
+  </div>
+</section>
+
+
 
       {/* -- Meet Our Team Section -- */}
       <section className="meet-our-team">
-
         <div className="team-members">
-        <div className="team-intro">
-          <h2>Meet Our Team</h2>
-          <p>Our talented team members are dedicated to making an impact.</p>
-        </div>
+          <div className="team-intro">
+            <h2>Meet Our Team</h2>
+            <p>Our talented team members are dedicated to making an impact.</p>
+          </div>
           <TeamMember
             image={aboutImage2}
             name="John Doe"
@@ -315,7 +298,6 @@ function AboutUS() {
             description="Tech innovator and solution architect"
           />
         </div>
-        
       </section>
     </>
   );

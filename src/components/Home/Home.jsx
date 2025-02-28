@@ -10,6 +10,7 @@ import ImageComponent from '../ImageComponent/ImageComponent';
 import { LuArrowUpRight } from "react-icons/lu";
 import { IoMdQuote } from "react-icons/io";
 import { FaRegMap } from "react-icons/fa";
+import { useAnimation } from '../animations/useIntersectionObserver';
 
 
 
@@ -37,6 +38,7 @@ import svg12 from '../img/assets/Home/Regulatory and Legal Compliance mac.svg'
 import './Home.css';
 
 function Home() {
+  const fadeUpRef = useAnimation('fadeUp');
   const testimonials = [
     {
       name: "Maria Smantha",
@@ -95,7 +97,11 @@ function Home() {
 
 
      {/* -- About Us Section -- */}
-     <section className="about-us" id="about">
+     <section className="about-us" id="about"
+     ref={fadeUpRef}
+     data-animation="fadeUp"
+     
+     >
         <div className="about-us-container">
           <div className="about-us-content">
             {/* Left Image Blocks */}

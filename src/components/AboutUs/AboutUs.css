@@ -237,6 +237,15 @@
         justify-content: space-evenly;
         width: 668px;
       }
+
+      .about-us-page-blocks {
+        display: grid;
+        grid-template-columns: none;
+        grid-template-rows: none;
+        gap: 1.5rem;
+        width: fit-content;
+        height: fit-content;
+      }
       
       .about-us-page-content {
         display: flex;
@@ -259,6 +268,8 @@
       .about-us-page-text {
         flex: 1;
         max-width: 300px;
+        padding-left: 30px;
+
       }
       
       .about-us-page-title {
@@ -543,9 +554,9 @@
 }
 
 .counter-grid {
-  display: grid;
+  display: flex;
   gap: 2rem;
-  grid-template-columns: 1fr;
+  
 }
 
 .counter-card {
@@ -575,7 +586,7 @@
   margin: 0 auto;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .counter-grid {
     display: flex;
     flex-direction: row;
@@ -617,7 +628,7 @@
 @media (max-width: 480px) {
   .counter-grid {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 2rem;
     flex-wrap: nowrap;
     justify-content: space-evenly;
@@ -659,11 +670,14 @@
    nimo Section
    ====================== */
    .nimo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0px 50px 10px 50px;
-    background-color: #ffffff;
+    display: flex
+    ;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 0px 50px 10px 50px;
+        background-color: #ffffff;
+        flex-direction: row;
+        flex-wrap: wrap;
   }
   
   .nimo-container {
@@ -676,18 +690,18 @@
   
   .nimo-content {
     display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: space-evenly;
+        flex-direction: row;
+        align-items: center;
   }
   
   .nimo-blocks {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    display: flex;
+   
     gap: 1.5rem;
-    width: 450px;
-    height: 500px;
+
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
   }
@@ -704,10 +718,10 @@
   }
   
   .nimo-blocks img {
-    width: 150px;
-    height: 400px;
+    width: auto;
+    height: auto;
     object-fit: cover;
-    border-radius: 70px;
+    
     
   
   }
@@ -760,9 +774,9 @@
     }
   
     .nimo-blocks img {
-      width: 120px; /* Full-width images */
-      height: 385px;
-      padding-right: 0; /* Remove padding */
+      width: 390px;
+      height: 330px;
+      padding-right: 0;
     }
 .nimo-title{
     font-family: 'Roboto Slab';
@@ -773,13 +787,19 @@
     padding-left: 3px;
   }
   
-  .nimo-text p {
+  .nimo-text {
+    flex: 1;
+    max-width: 500px;
+    padding: 1rem;
+    padding-left: 0px;
+  }
+  .nimo-text p{
     font-size: 15px;
     color: #666;
     text-align: justify;
     padding-bottom: 20px;
-  }}
-
+  }
+}
   /* For Phones (480px and below) */
   @media (max-width: 480px) {
     .nimo {
@@ -791,7 +811,7 @@
       height: 400px;
       display: flex;
       flex-wrap: wrap;
-      padding-left: 30px;
+      padding-left: 15px;
       justify-content: center; /* Center images */
     }
   
@@ -808,7 +828,14 @@
       border-left: 5px solid #B39957;
       padding-left: 0px;
     }
-    
+
+    .nimo-blocks img{
+    width: 370px;
+    height: 313px;
+    padding-right: 0;
+
+}
+
     .nimo-text p {
       font-size: 15px;
       color: #666;
@@ -820,175 +847,154 @@
 /* ======================
      c-goal
      ====================== */
-
-
      .c-goal {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 136px 50px 136px 50px;
+      padding: 136px 91px;
       background-color: #ffffff;
     }
     
     .c-goal-container {
       display: flex;
-      flex-direction: row;
-      gap: 2rem;
-      align-items: center;
+      gap: 4rem;
       max-width: 1200px;
+      margin: 0 auto;
+      align-items: flex-start;
     }
     
+    /* Left Content Section */
     .c-goal-content {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: space-between;
-    }
-    
-    .c-goal-blocks {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(4, 1fr);
-      gap: 1.5rem;
-      width: 450px;
-      height: 500px;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-    }
-    
-    .image-container {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 12px;
-      padding: 8px;
-      background-color: white;
-      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    
-    .c-goal-blocks img {
-      width: 500px;
-      height: 500px;
-      object-fit: cover;
-      border-radius: 250px;
-      padding-right: 32px;
+      flex: 1;
+      max-width: 600px;
     }
     
     .c-goal-text {
-      flex: 1;
-      max-width: 500px;
-      padding: 20px 40px 0px 0px;
-    }
-
-    .c-goal-btn button{
-
-      background-color: rgb(170, 168, 168);
-      padding: 7px 20px 7px 20px;
-      border-radius: 40px;
-      margin: 5px;
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-
-    .c-goal-text-span{
-      padding: 10px 20px 20px 0px;
+      width: 100%;
     }
     
-   
+    /* Right Image Section */
+    .c-goal-blocks {
+      flex: 1;
+      max-width: 600px;
+      position: relative;
+    }
+    
+    .c-goal-image {
+      width: 100%;
+      height: 100%px;
+      object-fit: cover;
+    
+    }
     
     .c-goal-title {
       font-family: 'Roboto Slab';
       font-size: 40px;
       font-weight: bold;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
       border-left: 5px solid #B39957;
       padding-left: 1rem;
+    }
+    
+    .c-goal-btn {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .c-goal-btn button {
+      background-color: rgb(170, 168, 168);
+      padding: 12px 32px;
+      border-radius: 40px;
+      font-size: 20px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .c-goal-btn button.active {
+      background-color: #002B5A;
+      color: white;
     }
     
     .c-goal-text p {
       font-size: 20px;
       color: #666;
       line-height: 1.6;
-      text-align: justify;
-      padding-bottom: 64px; /* Fixed missing unit */
+      margin-bottom: 2rem;
     }
-    
-    
-    
     
     /* ======================
        Responsive Design
        ====================== */
-    
-    /* For iPad (768px and below) */
+
     @media (max-width: 768px) {
       .c-goal {
-        padding: 4rem 1.5rem; /* Further reduced padding */
+        padding: 4rem 1.5rem;
       }
-    
-      .c-goal-blocks {
-        width: 400px;
-        height: 400px;
+      .c-goal-container {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center; /* Center images */
-      }
-    
-      .c-goal-blocks img {
-        width: 312px; /* Full-width images */
-        height: 332px;
-        padding-right: 0; /* Remove padding */
-      }
-      .c-goal-title {
-        font-family: 'Roboto Slab';
-        font-size: 30px;
-        font-weight: bold;
-        margin-bottom: 1rem;
-        border-left: 3px solid #B39957;
-        padding-left: 1rem;
-      }
-    
-      .c-goal-text {
-        text-align: center;
-      }
-    }
-    
-    /* For Phones (480px and below) */
-    @media (max-width: 480px) {
-      .c-goal {
-        padding: 3rem 1rem; /* Minimal padding */
+        gap: 4rem;
+        max-width: 668px;
+        margin: 0 auto;
+        align-items: flex-start;
       }
 
-      .c-goal-container{
-        display: flex;
-        gap: 1rem;
-        flex-direction: column-reverse;
-      }
-      
-      .c-goal-blocks img {
-        width: 332px; /* Full-width images */
-        height: 350px;
-
-      }
-      .c-goal-text{
-        margin-left: 10px;
+      .c-goal-title {
+        font-size: 32px;
       }
     
-      .c-goal-title {
-        font-size: 1.8rem; /* Smaller font size */
-        text-align: left;
-        padding-left: 4px;
-        
+      .c-goal-btn button {
+        padding: 10px 24px;
+        font-size: 18px;
       }
     
       .c-goal-text p {
-        font-size: 15px; /* Smaller text */
+        font-size: 18px;
       }
-  }
+    
+      .c-goal-image {
+        height: 277px;
+        width: 279px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .c-goal {
+        padding: 3rem 1rem;
+      }
+    
+      .c-goal-title {
+        font-size: 28px;
+        border-left-width: 3px;
+      }
+    
+      .c-goal-container {
+        display: flex;
+        gap: 4rem;
+        max-width: 668px;
+        margin: 0 auto;
+        flex-direction: column;
+        align-items: center;
+    }
 
-
+      .c-goal-btn {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    
+      .c-goal-btn button {
+        font-size: 16px;
+        padding: 8px 20px;
+      }
+    
+      .c-goal-image {
+        height: 277px;
+        width: 279px;
+      }
+    
+      .c-goal-text p {
+        font-size: 16px;
+      }
+    }
 
 
 /* Meet Our Team Section */
@@ -1033,8 +1039,8 @@
 }
 
 .team-member img {
-  width: 100%;
-  height: 350px;
+  width: 322px;
+  height: 416px;
   object-fit: cover;
   border-radius: 12px;
 }
